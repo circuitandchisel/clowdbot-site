@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDS4JMQWFK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SDS4JMQWFK');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clowdbot - Your Personal AI Assistant in the Cloud</title>
@@ -60,7 +68,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-100 antialiased">
+<body class="bg-gray-950 text-gray-100 antialiased overflow-x-hidden">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-lg border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,24 +99,24 @@
                         <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
                         Now Available
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                    <h1 class="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
                         Your Personal
-                        <a href="https://clawd.bot" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400 hover:from-brand-300 hover:to-purple-300">Clawdbot</a>
+                        <a href="https://clawd.bot" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400 hover:from-brand-300 hover:to-purple-300 break-words">Clawdbot</a>
                         in the Cloud
                     </h1>
                     <p class="text-xl text-gray-300 mb-8 leading-relaxed">
                         Run <a href="https://clawd.bot" class="text-brand-400 hover:text-brand-300 underline">Clawdbot</a> — the AI that actually does things — in the cloud. Always on, accessible anywhere, with persistent memory and access to all major LLMs.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://clowdbot.atxp.ai" class="inline-flex flex-col items-center justify-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl transition-all hover:scale-105">
-                            <span class="text-lg font-semibold">🚀 Launch Your Instance</span>
-                            <span class="text-sm text-brand-200">$0.01 to launch + pay only for LLM usage</span>
+                        <a href="https://clowdbot.atxp.ai" class="inline-flex flex-col items-center justify-center px-6 sm:px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl transition-all hover:scale-105 w-full sm:w-auto">
+                            <span class="text-base sm:text-lg font-semibold">🚀 Launch Your Instance</span>
+                            <span class="text-xs sm:text-sm text-brand-200">$0.01 to launch + pay only for LLM usage</span>
                         </a>
-                        <a href="#how-it-works" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-lg font-semibold rounded-xl transition-colors border border-white/20">
+                        <a href="#how-it-works" class="inline-flex items-center justify-center px-6 sm:px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-base sm:text-lg font-semibold rounded-xl transition-colors border border-white/20 w-full sm:w-auto">
                             Learn More
                         </a>
                     </div>
-                    <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-gray-400">
+                    <div class="mt-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-4 sm:gap-6 text-sm text-gray-400">
                         <div class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                             Always on
@@ -127,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative float-animation">
+                <div class="relative float-animation hidden lg:block">
                     <div class="bg-gray-900 rounded-2xl terminal-glow overflow-hidden border border-gray-700">
                         <div class="flex items-center gap-2 px-4 py-3 bg-gray-800 border-b border-gray-700">
                             <div class="w-3 h-3 rounded-full bg-red-500"></div>
