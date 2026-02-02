@@ -11,8 +11,34 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clowdbot - Your Personal AI Assistant in the Cloud</title>
-    <meta name="description" content="Run your own Clawdbot instance in the cloud - the AI that actually does things. Manages email, calendar, tasks, and more. Always on, accessible anywhere.">
+    <title>Clowdbot - OpenClaw & Clawdbot Cloud Host | Run 24/7</title>
+    <meta name="description" content="Host OpenClaw (Clawdbot) in the cloud. The easiest way to run your AI assistant 24/7 - always on, accessible anywhere. $0.01 to launch, pay only for LLM usage.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://clowd.bot/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clowd.bot/">
+    <meta property="og:title" content="Clowdbot - OpenClaw & Clawdbot Cloud Host">
+    <meta property="og:description" content="Host OpenClaw (Clawdbot) in the cloud. Run your AI assistant 24/7 - always on, accessible anywhere. $0.01 to launch, pay only for LLM usage.">
+    <meta property="og:image" content="https://clowd.bot/og-image.png">
+    <meta property="og:site_name" content="Clowdbot">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://clowd.bot/">
+    <meta name="twitter:title" content="Clowdbot - OpenClaw & Clawdbot Cloud Host">
+    <meta name="twitter:description" content="Host OpenClaw (Clawdbot) in the cloud. Run your AI assistant 24/7 - always on, accessible anywhere, with persistent memory.">
+    <meta name="twitter:image" content="https://clowd.bot/og-image.png">
+
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -37,7 +63,6 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .gradient-bg {
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
@@ -67,6 +92,93 @@
             animation: float 3s ease-in-out infinite;
         }
     </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Clowdbot",
+        "alternateName": ["OpenClaw Host", "Clawdbot Cloud Host"],
+        "description": "Cloud hosting for OpenClaw (formerly Clawdbot). Run your AI assistant 24/7 - always on, accessible anywhere, with persistent memory and access to all major LLMs.",
+        "url": "https://clowd.bot/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cloud",
+        "offers": {
+            "@type": "Offer",
+            "price": "0.01",
+            "priceCurrency": "USD",
+            "description": "Instance launch fee + pay-per-token LLM usage"
+        },
+        "featureList": [
+            "OpenClaw and Clawdbot cloud hosting",
+            "Always on 24/7",
+            "Accessible anywhere",
+            "Persistent memory",
+            "Access to Claude, GPT, Gemini and more",
+            "Browser-based terminal",
+            "2 vCPU, 2GB RAM, 1GB storage"
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is OpenClaw (Clawdbot)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "OpenClaw (formerly known as Clawdbot) is an open-source AI assistant that runs in your terminal. Unlike chatbots that just respond to questions, OpenClaw can actually take actions: manage your calendar, send emails, automate tasks, and integrate with apps like WhatsApp and Telegram. It learns your preferences over time through persistent memory."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why should I host OpenClaw in the cloud instead of running it locally?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When you run OpenClaw locally, it stops when you close your laptop. Cloud hosting means your AI assistant runs 24/7, can receive messages while you sleep, execute scheduled tasks, and be accessed from any device. Clowdbot handles all the server setup so you can focus on using your assistant."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does it cost to run OpenClaw 24/7?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Clowdbot uses true pay-as-you-go pricing. You pay $0.01 to launch an instance, then only pay for the LLM tokens you actually use (at market rates). There are no hourly compute fees, no subscriptions, and no minimums. If your assistant is idle, you pay nothing beyond the initial launch fee."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use my own API keys, or do I have to use Clowdbot's LLM access?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Clowdbot provides built-in access to Claude, GPT, Gemini, and other LLMs at market rates with no API key management required. This is the easiest option for most users. If you prefer to use your own API keys, you can configure that in your OpenClaw instance settings."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my data secure on a cloud-hosted OpenClaw instance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Each Clowdbot instance is isolated and runs in its own secure environment. Your persistent memory, skills, and connected accounts are stored encrypted and only accessible to you. We don't have access to your conversations or data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between Clowdbot and other AI hosting services?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Clowdbot is specifically built for OpenClaw (Clawdbot). Unlike generic cloud VMs, we handle all the dependencies, configuration, and LLM integrations automatically. And unlike AI API services, you get a full persistent AI assistant with memory and skills, not just API access."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-gray-950 text-gray-100 antialiased overflow-x-hidden">
     <!-- Navigation -->
@@ -81,9 +193,9 @@
                     <a href="#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
                     <a href="#how-it-works" class="text-gray-300 hover:text-white transition-colors">How It Works</a>
                     <a href="#pricing" class="text-gray-300 hover:text-white transition-colors font-medium text-brand-400 hover:text-brand-300">Pay-As-You-Go Pricing</a>
-                    <a href="#specs" class="text-gray-300 hover:text-white transition-colors">Specs</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a>
                 </div>
-                <a href="https://clowdbot.atxp.ai" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-lg font-medium transition-colors">
+                <a href="https://clowdbot.atxp.ai" rel="noopener" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-lg font-medium transition-colors">
                     Get Started
                 </a>
             </div>
@@ -100,15 +212,15 @@
                         Now Available
                     </div>
                     <h1 class="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-                        Your Personal
-                        <a href="https://clawd.bot" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400 hover:from-brand-300 hover:to-purple-300 break-words">Clawdbot</a>
+                        Host
+                        <a href="https://clawd.bot" rel="noopener" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400 hover:from-brand-300 hover:to-purple-300 break-words">OpenClaw</a>
                         in the Cloud
                     </h1>
                     <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-                        Run <a href="https://clawd.bot" class="text-brand-400 hover:text-brand-300 underline">Clawdbot</a> — the AI that actually does things — in the cloud. Always on, accessible anywhere, with persistent memory and access to all major LLMs.
+                        The easiest way to run <a href="https://clawd.bot" rel="noopener" class="text-brand-400 hover:text-brand-300 underline">OpenClaw</a> (formerly Clawdbot) 24/7. Always on, accessible anywhere, with persistent memory and access to all major LLMs.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://clowdbot.atxp.ai" class="inline-flex flex-col items-center justify-center px-6 sm:px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl transition-all hover:scale-105 w-full sm:w-auto">
+                        <a href="https://clowdbot.atxp.ai" rel="noopener" class="inline-flex flex-col items-center justify-center px-6 sm:px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl transition-all hover:scale-105 w-full sm:w-auto">
                             <span class="text-base sm:text-lg font-semibold">🚀 Launch Your Instance</span>
                             <span class="text-xs sm:text-sm text-brand-200">$0.01 to launch + pay only for LLM usage</span>
                         </a>
@@ -167,8 +279,8 @@
     <section id="features" class="py-24 bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Why Run Clawdbot in the Cloud?</h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto"><a href="https://clawd.bot" class="text-brand-400 hover:text-brand-300">Clawdbot</a> normally runs on your local machine. Clowdbot gives you a cloud instance that's always available.</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Why Host OpenClaw in the Cloud?</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto"><a href="https://clawd.bot" rel="noopener" class="text-brand-400 hover:text-brand-300">OpenClaw</a> (formerly Clawdbot) normally runs on your local machine. Clowdbot gives you a hosted cloud instance that's always available.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
@@ -189,7 +301,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">Access Anywhere</h3>
-                    <p class="text-gray-400">Manage your Clawdbot from any device via browser terminal. Chat with it through WhatsApp, Telegram, or any connected app.</p>
+                    <p class="text-gray-400">Manage your OpenClaw instance from any device via browser terminal. Chat with it through WhatsApp, Telegram, or any connected app.</p>
                 </div>
                 <!-- Feature 3 -->
                 <div class="feature-card bg-gray-800/50 rounded-2xl p-8 border border-gray-700/50 transition-all duration-300">
@@ -199,7 +311,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">Persistent Memory</h3>
-                    <p class="text-gray-400">Your context, skills, and preferences survive restarts. Clawdbot remembers you and becomes uniquely yours over time.</p>
+                    <p class="text-gray-400">Your context, skills, and preferences survive restarts. OpenClaw remembers you and becomes uniquely yours over time.</p>
                 </div>
                 <!-- Feature 4 -->
                 <div class="feature-card bg-gray-800/50 rounded-2xl p-8 border border-yellow-500/30 transition-all duration-300 relative overflow-hidden">
@@ -220,7 +332,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">One-Click Setup</h3>
-                    <p class="text-gray-400">Skip the local installation. Launch a fully configured Clawdbot instance instantly—no dependencies, no configuration.</p>
+                    <p class="text-gray-400">Skip the local installation. Launch a fully configured OpenClaw instance instantly—no dependencies, no configuration.</p>
                 </div>
                 <!-- Feature 6 -->
                 <div class="feature-card bg-gray-800/50 rounded-2xl p-8 border border-gray-700/50 transition-all duration-300">
@@ -241,7 +353,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">How It Works</h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Get your personal AI assistant running in the cloud in three simple steps.</p>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Get your OpenClaw instance hosted in the cloud in three simple steps.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Step 1 -->
@@ -255,7 +367,7 @@
                 <div class="relative">
                     <div class="flex items-center justify-center w-16 h-16 bg-brand-600 rounded-2xl text-white text-2xl font-bold mb-6">2</div>
                     <h3 class="text-xl font-semibold text-white mb-3">Launch Instance</h3>
-                    <p class="text-gray-400">Click the launch button. Your personal Clawdbot instance spins up automatically in the nearest region.</p>
+                    <p class="text-gray-400">Click the launch button. Your hosted OpenClaw instance spins up automatically in the nearest region.</p>
                     <div class="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-brand-600 to-transparent"></div>
                 </div>
                 <!-- Step 3 -->
@@ -305,7 +417,7 @@
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                    <span class="text-gray-300">Clawdbot pre-installed</span>
+                                    <span class="text-gray-300">OpenClaw pre-installed</span>
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -354,7 +466,7 @@
                             <p class="text-white font-medium mb-1">Billed to your ATXP account</p>
                             <p class="text-gray-400 text-sm">No hourly fees, no contracts, no commitments. Just pay for what you use.</p>
                         </div>
-                        <a href="https://clowdbot.atxp.ai" class="inline-block px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-lg font-semibold rounded-xl transition-colors whitespace-nowrap">
+                        <a href="https://clowdbot.atxp.ai" rel="noopener" class="inline-block px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-lg font-semibold rounded-xl transition-colors whitespace-nowrap">
                             Get Started Now
                         </a>
                     </div>
@@ -368,7 +480,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Instance Specifications</h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">A fully configured environment ready to run Clawdbot and all its integrations.</p>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">A fully configured environment ready to host OpenClaw and all its integrations.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Hardware Specs -->
@@ -429,12 +541,54 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-400">Everything you need to know about hosting OpenClaw in the cloud.</p>
+            </div>
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
+                    <h3 class="text-lg font-semibold text-white mb-3">What is OpenClaw (Clawdbot)?</h3>
+                    <p class="text-gray-400">OpenClaw (formerly known as Clawdbot) is an open-source AI assistant that runs in your terminal. Unlike chatbots that just respond to questions, OpenClaw can actually take actions: manage your calendar, send emails, automate tasks, and integrate with apps like WhatsApp and Telegram. It learns your preferences over time through persistent memory.</p>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
+                    <h3 class="text-lg font-semibold text-white mb-3">Why should I host OpenClaw in the cloud instead of running it locally?</h3>
+                    <p class="text-gray-400">When you run OpenClaw locally, it stops when you close your laptop. Cloud hosting means your AI assistant runs 24/7, can receive messages while you sleep, execute scheduled tasks, and be accessed from any device. Clowdbot handles all the server setup so you can focus on using your assistant.</p>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
+                    <h3 class="text-lg font-semibold text-white mb-3">How much does it cost to run OpenClaw 24/7?</h3>
+                    <p class="text-gray-400">Clowdbot uses true pay-as-you-go pricing. You pay $0.01 to launch an instance, then only pay for the LLM tokens you actually use (at market rates). There are no hourly compute fees, no subscriptions, and no minimums. If your assistant is idle, you pay nothing beyond the initial launch fee.</p>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
+                    <h3 class="text-lg font-semibold text-white mb-3">Can I use my own API keys, or do I have to use Clowdbot's LLM access?</h3>
+                    <p class="text-gray-400">Clowdbot provides built-in access to Claude, GPT, Gemini, and other LLMs at market rates with no API key management required. This is the easiest option for most users. If you prefer to use your own API keys, you can configure that in your OpenClaw instance settings.</p>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
+                    <h3 class="text-lg font-semibold text-white mb-3">Is my data secure on a cloud-hosted OpenClaw instance?</h3>
+                    <p class="text-gray-400">Yes. Each Clowdbot instance is isolated and runs in its own secure environment. Your persistent memory, skills, and connected accounts are stored encrypted and only accessible to you. We don't have access to your conversations or data.</p>
+                </div>
+                <!-- FAQ 6 -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
+                    <h3 class="text-lg font-semibold text-white mb-3">What's the difference between Clowdbot and other AI hosting services?</h3>
+                    <p class="text-gray-400">Clowdbot is specifically built for OpenClaw (Clawdbot). Unlike generic cloud VMs, we handle all the dependencies, configuration, and LLM integrations automatically. And unlike AI API services, you get a full persistent AI assistant with memory and skills, not just API access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-24 gradient-bg">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Ready for an AI That Actually Does Things?</h2>
-            <p class="text-xl text-gray-300 mb-10">Launch your personal Clawdbot instance in the cloud. Always on, accessible anywhere.</p>
-            <a href="https://clowdbot.atxp.ai" class="inline-flex items-center justify-center px-10 py-5 bg-white text-brand-700 text-lg font-bold rounded-xl transition-all hover:scale-105 hover:shadow-2xl">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Ready to Host OpenClaw in the Cloud?</h2>
+            <p class="text-xl text-gray-300 mb-10">Launch your OpenClaw instance and run it 24/7. Always on, accessible anywhere.</p>
+            <a href="https://clowdbot.atxp.ai" rel="noopener" class="inline-flex items-center justify-center px-10 py-5 bg-white text-brand-700 text-lg font-bold rounded-xl transition-all hover:scale-105 hover:shadow-2xl">
                 🚀 Launch Your Instance
             </a>
             <p class="mt-6 text-gray-400">Fund your ATXP account and get started</p>
@@ -452,8 +606,8 @@
                 <div class="flex items-center gap-8 text-gray-400">
                     <a href="#features" class="hover:text-white transition-colors">Features</a>
                     <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
-                    <a href="#specs" class="hover:text-white transition-colors">Specs</a>
-                    <a href="https://clowdbot.atxp.ai" class="hover:text-white transition-colors">Sign In</a>
+                    <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+                    <a href="https://clowdbot.atxp.ai" rel="noopener" class="hover:text-white transition-colors">Sign In</a>
                 </div>
             </div>
             <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
