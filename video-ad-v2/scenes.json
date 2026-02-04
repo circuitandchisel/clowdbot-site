@@ -1,0 +1,49 @@
+{
+  "name": "clowdbot-ad-v2",
+  "voice": "JBFqnCBsd6RMkjVDRZzb",
+  "character": "narrator",
+  "scenes": [
+    {
+      "id": "scene1",
+      "text": "Your AI assistant ghosts you the moment you close your laptop.",
+      "duration": 4,
+      "character": "dramatic"
+    },
+    {
+      "id": "scene2",
+      "text": "No memory. No follow-through. Just... gone.",
+      "duration": 3,
+      "character": "dramatic"
+    },
+    {
+      "id": "scene3",
+      "text": "What if your Clawdbot stayed?",
+      "duration": 4,
+      "character": "narrator"
+    },
+    {
+      "id": "scene4",
+      "text": "Safe. Secure. Always on. And it messages you back when it's done.",
+      "duration": 5,
+      "character": "salesperson"
+    },
+    {
+      "id": "scene5",
+      "text": "An AI assistant your whole family can trust.",
+      "duration": 6,
+      "character": "calm"
+    },
+    {
+      "id": "scene6",
+      "text": "Fifty cents to launch. Pay only for what you use.",
+      "duration": 5,
+      "character": "salesperson"
+    },
+    {
+      "id": "scene7",
+      "text": "Clawdbot. Your Claude, always on.",
+      "duration": 3,
+      "character": "calm"
+    }
+  ]
+}
