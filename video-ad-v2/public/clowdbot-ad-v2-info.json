@@ -1,0 +1,103 @@
+{
+  "name": "clowdbot-ad-v2",
+  "voice": "JBFqnCBsd6RMkjVDRZzb",
+  "model": "eleven_multilingual_v2",
+  "character": "narrator",
+  "dictionary": null,
+  "totalScenes": 7,
+  "totalCharacters": 325,
+  "generatedAt": "2026-02-04T19:37:18.898Z",
+  "scenes": [
+    {
+      "id": "scene1",
+      "file": "clowdbot-ad-v2-scene1.mp3",
+      "text": "Your AI assistant ghosts you the moment you close your laptop.",
+      "size": 57722,
+      "duration": 4,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "dramatic",
+      "requestId": "5fv5RIUaX8p21o2ZSXjk"
+    },
+    {
+      "id": "scene2",
+      "file": "clowdbot-ad-v2-scene2.mp3",
+      "text": "No memory. No follow-through. Just... gone.",
+      "size": 55214,
+      "duration": 3,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "dramatic",
+      "requestId": "KX5gvp5wUW4UZKp1gQU1"
+    },
+    {
+      "id": "scene3",
+      "file": "clowdbot-ad-v2-scene3.mp3",
+      "text": "What if your Clawdbot stayed?",
+      "size": 30973,
+      "duration": 4,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "narrator",
+      "requestId": "MXUMWgrU4WhCXNZxXNYf"
+    },
+    {
+      "id": "scene4",
+      "file": "clowdbot-ad-v2-scene4.mp3",
+      "text": "Safe. Secure. Always on. And it messages you back when it's done.",
+      "size": 76948,
+      "duration": 5,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "salesperson",
+      "requestId": "LwIhzQf0PmhujmeF4tE4"
+    },
+    {
+      "id": "scene5",
+      "file": "clowdbot-ad-v2-scene5.mp3",
+      "text": "An AI assistant your whole family can trust.",
+      "size": 46437,
+      "duration": 6,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "calm",
+      "requestId": "Pg0oTgCA12JPOnmf1Gz3"
+    },
+    {
+      "id": "scene6",
+      "file": "clowdbot-ad-v2-scene6.mp3",
+      "text": "Fifty cents to launch. Pay only for what you use.",
+      "size": 53124,
+      "duration": 5,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "salesperson",
+      "requestId": "Y9kTYRqN1prlMoqV8FxD"
+    },
+    {
+      "id": "scene7",
+      "file": "clowdbot-ad-v2-scene7.mp3",
+      "text": "Clawdbot. Your Claude, always on.",
+      "size": 44765,
+      "duration": 3,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "calm",
+      "requestId": "vsuAbNQz7dQklaymiZoH"
+    }
+  ]
+}
