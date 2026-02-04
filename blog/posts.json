@@ -1,0 +1,20 @@
+{
+  "title": "Clowdbot Blog",
+  "description": "Writing for humans and agents",
+  "url": "https://clowd.bot/blog/",
+  "feed": "https://clowd.bot/blog/feed.xml",
+  "updated": "2025-01-23T10:00:00Z",
+  "posts": [
+    {
+      "id": "hello-world",
+      "title": "Hello, World",
+      "url": "https://clowd.bot/blog/hello-world.html",
+      "markdown": "https://clowd.bot/blog/hello-world.md",
+      "image": "https://clowd.bot/blog/images/hello-world.jpg",
+      "excerpt": "Welcome to the Clowdbot blog. We're writing for humans and agents alike—and we're curious what that means.",
+      "date": "2025-01-23",
+      "readTime": "2 min",
+      "tags": ["announcement", "agents"]
+    }
+  ]
+}

@@ -1,422 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ============================================================
-         CLOWDBOT BLOG - HEAD SECTION
-         ============================================================
-
-         This is the blog index page for Clowdbot. It follows the same
-         structure and styling as the main site (index.html).
-
-         IMPORTANT NOTES FOR CONTRIBUTORS:
-         - This site uses Tailwind CSS v4.1.18 for styling
-         - The compiled CSS is at /dist/styles.css
-         - To rebuild CSS after changes to src/input.css, run:
-           npm run build (or: npx @tailwindcss/cli -i ./src/input.css -o ./dist/styles.css)
-         - Color scheme: Dark mode with indigo brand colors
-         - Font: Inter (loaded from Google Fonts)
-
-         SEO CHECKLIST FOR NEW BLOG POSTS:
-         - Update the <title> tag to include the post title
-         - Update meta description to summarize the post (150-160 chars)
-         - Add canonical URL for the specific post
-         - Update Open Graph and Twitter Card meta tags
-         - Consider adding article-specific structured data (Schema.org)
-
-         ============================================================ -->
-
-    <!-- Google Tag Manager - Same as main site for unified analytics -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTHBHHGJ');</script>
-    <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Clowdbot</title>
+    <meta name="description" content="The Clowdbot blog. Writing for humans and agents.">
 
-    <!-- ============================================================
-         PAGE TITLE & META DESCRIPTION
-         ============================================================
-
-         When creating individual blog post pages, update these to be
-         specific to that post. For example:
-
-         <title>How to Set Up OpenClaw Integrations - Clowdbot Blog</title>
-         <meta name="description" content="Learn how to connect your OpenClaw
-         instance to WhatsApp, Telegram, and other messaging platforms...">
-
-         ============================================================ -->
-    <title>Blog - Clowdbot | OpenClaw Cloud Hosting</title>
-    <meta name="description" content="The Clowdbot blog - tips, tutorials, and updates about hosting OpenClaw in the cloud. Learn how to get the most out of your AI assistant.">
-
-    <!-- Canonical URL - Update this for each individual blog post -->
     <link rel="canonical" href="https://clowd.bot/blog/">
-
-    <!-- Favicon - Same as main site -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="Clowdbot Blog" href="/blog/feed.xml">
+    <link rel="alternate" type="application/json" title="Clowdbot Blog (JSON)" href="/blog/posts.json">
 
-    <!-- ============================================================
-         OPEN GRAPH META TAGS
-         ============================================================
-
-         These control how the page appears when shared on Facebook,
-         LinkedIn, and other platforms that support Open Graph.
-
-         For individual blog posts, you should:
-         - Change og:type from "website" to "article"
-         - Update og:url to the post's canonical URL
-         - Update og:title and og:description for the post
-         - Create a unique og:image for each post (recommended: 1200x630px)
-         - Add article-specific tags like article:published_time
-
-         Example for a blog post:
-         <meta property="og:type" content="article">
-         <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-         <meta property="article:author" content="Your Name">
-
-         ============================================================ -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://clowd.bot/blog/">
-    <meta property="og:title" content="Clowdbot Blog - OpenClaw Tips & Tutorials">
-    <meta property="og:description" content="Tips, tutorials, and updates about hosting OpenClaw in the cloud.">
+    <meta property="og:title" content="Clowdbot Blog">
+    <meta property="og:description" content="Writing for humans and agents.">
     <meta property="og:image" content="https://clowd.bot/og-image.png">
-    <meta property="og:site_name" content="Clowdbot">
 
-    <!-- ============================================================
-         TWITTER CARD META TAGS
-         ============================================================
-
-         These control how the page appears when shared on Twitter/X.
-         Use "summary_large_image" for posts with prominent images,
-         or "summary" for smaller thumbnail display.
-
-         ============================================================ -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://clowd.bot/blog/">
-    <meta name="twitter:title" content="Clowdbot Blog - OpenClaw Tips & Tutorials">
-    <meta name="twitter:description" content="Tips, tutorials, and updates about hosting OpenClaw in the cloud.">
-    <meta name="twitter:image" content="https://clowd.bot/og-image.png">
+    <meta name="twitter:site" content="@atxp_ai">
 
-    <!-- Font preconnect and stylesheet - Same as main site -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="/dist/styles.css" rel="stylesheet">
 
-    <!-- ============================================================
-         STRUCTURED DATA (Schema.org)
-         ============================================================
-
-         This helps search engines understand the content structure.
-         For the blog index, we use the Blog type.
-
-         When creating individual posts, add ArticlePosting schema:
-
-         {
-           "@context": "https://schema.org",
-           "@type": "BlogPosting",
-           "headline": "Your Post Title",
-           "description": "Post description...",
-           "image": "https://clowd.bot/blog/images/post-image.png",
-           "author": {
-             "@type": "Organization",
-             "name": "Clowdbot"
-           },
-           "publisher": {
-             "@type": "Organization",
-             "name": "Clowdbot",
-             "logo": {
-               "@type": "ImageObject",
-               "url": "https://clowd.bot/favicon.svg"
-             }
-           },
-           "datePublished": "2025-01-15T10:00:00Z",
-           "dateModified": "2025-01-15T10:00:00Z"
-         }
-
-         ============================================================ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Blog",
         "name": "Clowdbot Blog",
-        "description": "Tips, tutorials, and updates about hosting OpenClaw in the cloud",
+        "description": "Writing for humans and agents",
         "url": "https://clowd.bot/blog/",
         "publisher": {
             "@type": "Organization",
             "name": "Clowdbot",
-            "url": "https://clowd.bot/"
+            "url": "https://clowd.bot/",
+            "sameAs": ["https://x.com/atxp_ai", "https://atxp.ai"]
         }
     }
     </script>
+
+    <style>
+        .agent-mode pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: ui-monospace, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
-<body class="bg-gray-950 text-gray-100 antialiased overflow-x-hidden">
-    <!-- Google Tag Manager (noscript) - Required for users with JS disabled -->
+<body class="bg-gray-950 text-gray-100 antialiased">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTHBHHGJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- ============================================================
-         NAVIGATION
-         ============================================================
-
-         This navigation is slightly different from the main site:
-         - The logo links back to the home page (/)
-         - Navigation links are simplified for the blog context
-
-         IMPORTANT: The main site (index.html) does NOT link to the
-         blog in its top navigation. Only the footer has a subtle link.
-         This is intentional - update carefully if this changes.
-
-         ============================================================ -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-lg border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo - Links back to home page -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/90 backdrop-blur-md border-b border-gray-800/50">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="flex items-center justify-between h-14">
                 <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-                    <span class="text-2xl">☁️🦞</span>
-                    <span class="text-xl font-bold text-white">Clowdbot</span>
+                    <span class="text-lg">☁️🦞</span>
+                    <span class="font-semibold text-white text-sm">Clowdbot</span>
                 </a>
-
-                <!-- Navigation Links -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <!-- Link back to main site sections -->
-                    <a href="/#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
-                    <a href="/#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
-                    <!-- Current page indicator - Blog is active -->
-                    <span class="text-white font-medium">Blog</span>
+                <div class="flex items-center space-x-8">
+                    <span class="text-xs text-white">Blog</span>
+                    <a href="https://clowdbot.atxp.ai" class="text-xs bg-brand-600 hover:bg-brand-700 text-white px-3 py-1 rounded transition-colors">
+                        Get Started
+                    </a>
                 </div>
-
-                <!-- CTA Button - Same as main site -->
-                <a href="https://clowdbot.atxp.ai" rel="noopener" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-lg font-medium transition-colors">
-                    Get Started
-                </a>
             </div>
         </div>
     </nav>
 
-    <!-- ============================================================
-         MAIN CONTENT AREA
-         ============================================================
-
-         pt-16 accounts for the fixed navigation height (h-16).
-         This ensures content doesn't hide behind the nav bar.
-
-         ============================================================ -->
-    <main class="pt-16">
-
-        <!-- ============================================================
-             BLOG HERO/HEADER SECTION
-             ============================================================
-
-             This provides a branded header for the blog index page.
-             Individual blog post pages might use a different layout
-             with the post title and metadata here instead.
-
-             ============================================================ -->
-        <section class="py-16 sm:py-24 bg-gray-900">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
-                        Clowdbot Blog
-                    </h1>
-                    <p class="text-xl text-gray-400">
-                        Tips, tutorials, and updates about hosting OpenClaw in the cloud.
-                    </p>
+    <main class="pt-14">
+        <header class="pt-16 pb-16 border-b border-gray-800/50">
+            <div class="max-w-3xl mx-auto px-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold text-white mb-1">Blog</h1>
+                        <p class="text-gray-500">Writing for humans and agents.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="/blog/feed.xml" class="text-xs text-gray-500 hover:text-gray-300 transition-colors" title="RSS Feed">RSS</a>
+                        <span class="text-gray-700">·</span>
+                        <button id="agent-mode-toggle" class="text-xs text-gray-500 hover:text-gray-300 transition-colors" title="Toggle agent-friendly view">
+                            Agent Mode
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- ============================================================
-             BLOG POSTS GRID
-             ============================================================
+        <section id="posts-human" class="py-12">
+            <div class="max-w-3xl mx-auto px-6">
+                <div class="space-y-12">
 
-             This is where blog posts will be displayed. Currently empty
-             as this is the initial structure.
-
-             HOW TO ADD A NEW BLOG POST:
-
-             1. Create a new HTML file in the /blog directory
-                Example: /blog/getting-started-with-openclaw.html
-
-             2. Add a card to the grid below linking to your post.
-                Use the template provided in the comments.
-
-             3. The card should include:
-                - Featured image (recommended: 800x450px, 16:9 ratio)
-                - Category/tag (optional)
-                - Post title
-                - Brief excerpt (1-2 sentences)
-                - Publication date
-                - Read time estimate
-
-             BLOG POST CARD TEMPLATE:
-             -------------------------
-             Copy this template for each new post:
-
-             <article class="bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-brand-500/50 transition-all duration-300 hover:-translate-y-1">
-                 <a href="/blog/your-post-slug.html" class="block">
-                     <!-- Post Featured Image -->
-                     <!-- Recommended size: 800x450px (16:9 ratio) -->
-                     <!-- Store images in /blog/images/ directory -->
-                     <div class="aspect-video bg-gray-700 relative overflow-hidden">
-                         <img
-                             src="/blog/images/your-post-image.png"
-                             alt="Descriptive alt text for accessibility"
-                             class="w-full h-full object-cover"
-                         >
-                         <!-- Optional: Category badge overlay -->
-                         <span class="absolute top-4 left-4 px-3 py-1 bg-brand-600 text-white text-xs font-medium rounded-full">
-                             Tutorial
-                         </span>
-                     </div>
-
-                     <!-- Post Content -->
-                     <div class="p-6">
-                         <!-- Post Title -->
-                         <h2 class="text-xl font-semibold text-white mb-3 group-hover:text-brand-400 transition-colors">
-                             Your Post Title Here
-                         </h2>
-
-                         <!-- Post Excerpt -->
-                         <!-- Keep this to 1-2 sentences (roughly 100-150 characters) -->
-                         <p class="text-gray-400 mb-4 line-clamp-2">
-                             A brief description of what this post covers. Make it
-                             compelling to encourage clicks.
-                         </p>
-
-                         <!-- Post Meta (date and read time) -->
-                         <div class="flex items-center gap-4 text-sm text-gray-500">
-                             <time datetime="2025-01-15">Jan 15, 2025</time>
-                             <span>·</span>
-                             <span>5 min read</span>
-                         </div>
-                     </div>
-                 </a>
-             </article>
-
-             ============================================================ -->
-        <section class="py-16 sm:py-24 bg-gray-950">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                <!-- Posts Grid -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <!-- Hello, World -->
-                    <article class="bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-brand-500/50 transition-all duration-300 hover:-translate-y-1">
+                    <article class="group">
                         <a href="/blog/hello-world.html" class="block">
-                            <div class="aspect-video bg-gray-800 relative overflow-hidden">
+                            <div class="rounded-lg overflow-hidden bg-gray-800 mb-4" style="max-height: 280px;">
                                 <img
                                     src="/blog/images/hello-world.jpg"
                                     alt="A watercolor illustration of a friendly lobster writing Hello World with robot friends"
-                                    class="w-full h-full object-cover"
+                                    class="w-full object-cover object-center group-hover:opacity-90 transition-opacity"
+                                    style="height: 280px;"
                                 >
                             </div>
-                            <div class="p-6">
-                                <h2 class="text-xl font-semibold text-white mb-3">
-                                    Hello, World
-                                </h2>
-                                <p class="text-gray-400 mb-4 line-clamp-2">
-                                    Welcome to the Clowdbot blog. We're writing for humans and agents alike—and we're curious what that means.
-                                </p>
-                                <div class="flex items-center gap-4 text-sm text-gray-500">
-                                    <time datetime="2025-01-23">Jan 23, 2025</time>
-                                    <span>·</span>
-                                    <span>2 min read</span>
-                                </div>
+                            <h2 class="text-xl font-semibold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                                Hello, World
+                            </h2>
+                            <p class="text-gray-400 text-sm mb-3">
+                                Welcome to the Clowdbot blog. We're writing for humans and agents alike—and we're curious what that means.
+                            </p>
+                            <div class="flex items-center gap-3 text-xs text-gray-500">
+                                <time datetime="2025-01-23">Jan 23, 2025</time>
+                                <span>·</span>
+                                <span>2 min</span>
                             </div>
                         </a>
                     </article>
 
                 </div>
-
-
-                <!-- ============================================================
-                     PAGINATION (FOR FUTURE USE)
-                     ============================================================
-
-                     Once you have more than 9-12 posts, consider adding
-                     pagination. Here's a template:
-
-                     <nav class="mt-16 flex items-center justify-center gap-2">
-                         <a href="/blog/?page=1" class="px-4 py-2 bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700 transition-colors">
-                             Previous
-                         </a>
-                         <span class="px-4 py-2 bg-brand-600 text-white rounded-lg">1</span>
-                         <a href="/blog/?page=2" class="px-4 py-2 bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700 transition-colors">2</a>
-                         <a href="/blog/?page=3" class="px-4 py-2 bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700 transition-colors">3</a>
-                         <a href="/blog/?page=2" class="px-4 py-2 bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700 transition-colors">
-                             Next
-                         </a>
-                     </nav>
-
-                     Note: Since this is a static site, pagination would
-                     require either:
-                     - Static generation of page-1.html, page-2.html, etc.
-                     - JavaScript-based filtering
-                     - Moving to a static site generator (11ty, Hugo, etc.)
-
-                     ============================================================ -->
-
             </div>
         </section>
 
-        <!-- ============================================================
-             NEWSLETTER CTA (OPTIONAL)
-             ============================================================
+        <section id="posts-agent" class="py-12 hidden agent-mode">
+            <div class="max-w-3xl mx-auto px-6">
+                <pre class="text-gray-300 bg-gray-900 rounded-lg p-6 border border-gray-800">
+# Clowdbot Blog
 
-             Uncomment this section if you want to add email signup.
-             You'll need to integrate with an email service like:
-             - Mailchimp
-             - ConvertKit
-             - Buttondown
-             - etc.
+Posts for humans and agents. Machine-readable index: /blog/posts.json
 
-             <section class="py-16 bg-gray-900">
-                 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                     <h2 class="text-2xl font-bold text-white mb-4">Stay Updated</h2>
-                     <p class="text-gray-400 mb-8">
-                         Get the latest tips and updates delivered to your inbox.
-                     </p>
-                     <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                         <input
-                             type="email"
-                             placeholder="your@email.com"
-                             class="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-500"
-                         >
-                         <button
-                             type="submit"
-                             class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-lg transition-colors"
-                         >
-                             Subscribe
-                         </button>
-                     </form>
-                 </div>
-             </section>
+---
 
-             ============================================================ -->
+## Hello, World
+- URL: /blog/hello-world.html
+- Markdown: /blog/hello-world.md
+- Date: 2025-01-23
+- Read time: 2 min
 
+Welcome to the Clowdbot blog. We're writing for humans and agents
+alike—and we're curious what that means.
+
+---
+
+Feed: /blog/feed.xml
+JSON: /blog/posts.json
+                </pre>
+            </div>
+        </section>
     </main>
 
-    <!-- ============================================================
-         FOOTER
-         ============================================================
-
-         Same footer as the main site for consistency.
-         The main site footer now links to this blog page.
-
-         ============================================================ -->
     <footer class="bg-gray-950 border-t border-gray-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <!-- Logo - Links to home -->
                 <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
                     <span class="text-2xl">☁️🦞</span>
                     <span class="text-xl font-bold text-white">Clowdbot</span>
                 </a>
-                <!-- Footer links -->
                 <div class="flex items-center gap-8 text-gray-400">
                     <a href="/#features" class="hover:text-white transition-colors">Features</a>
                     <a href="/#pricing" class="hover:text-white transition-colors">Pricing</a>
@@ -434,102 +180,23 @@
         </div>
     </footer>
 
-    <!-- ============================================================
-         SCRIPTS
-         ============================================================
-
-         Currently minimal - just smooth scrolling for anchor links.
-         Add additional scripts here as needed.
-
-         ============================================================ -->
     <script>
-        // Smooth scrolling for anchor links (e.g., navigation to /#features)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        const toggle = document.getElementById('agent-mode-toggle');
+        const humanView = document.getElementById('posts-human');
+        const agentView = document.getElementById('posts-agent');
+        let isAgentMode = false;
+
+        toggle.addEventListener('click', () => {
+            isAgentMode = !isAgentMode;
+            humanView.classList.toggle('hidden', isAgentMode);
+            agentView.classList.toggle('hidden', !isAgentMode);
+            toggle.textContent = isAgentMode ? 'Human Mode' : 'Agent Mode';
         });
+
+        // Auto-enable agent mode if ?agent query param
+        if (new URLSearchParams(window.location.search).has('agent')) {
+            toggle.click();
+        }
     </script>
 </body>
 </html>
-
-<!-- ============================================================
-     ADDITIONAL NOTES FOR CONTRIBUTORS
-     ============================================================
-
-     FILE STRUCTURE RECOMMENDATIONS:
-
-     /blog/
-     ├── index.html              <- This file (blog listing)
-     ├── images/                 <- Directory for blog post images
-     │   ├── post-1-hero.png
-     │   └── post-2-hero.png
-     ├── getting-started.html    <- Individual post
-     ├── openclaw-tips.html      <- Individual post
-     └── etc.
-
-
-     CREATING AN INDIVIDUAL BLOG POST:
-
-     1. Copy this file as a template
-     2. Update the <head> section:
-        - Title: "Post Title - Clowdbot Blog"
-        - Meta description: Specific to the post
-        - Canonical URL: /blog/post-slug.html
-        - Open Graph tags for the post
-        - Structured data (BlogPosting schema)
-
-     3. Replace the content sections with:
-        - Post header (title, date, author, read time)
-        - Post body (your article content)
-        - Optional: Related posts section
-
-     4. Consider adding:
-        - Social share buttons
-        - Table of contents for long posts
-        - Code syntax highlighting (if technical posts)
-          Recommended: Prism.js or Highlight.js
-
-
-     CONTENT FORMATTING TIPS:
-
-     Use Tailwind's typography plugin classes for rich text:
-     - prose, prose-invert, prose-lg
-
-     Or build your own styled elements:
-     - Headings: text-2xl font-bold text-white mb-4
-     - Paragraphs: text-gray-300 mb-4 leading-relaxed
-     - Lists: list-disc list-inside text-gray-300 space-y-2
-     - Code blocks: bg-gray-800 rounded-lg p-4 font-mono text-sm
-     - Blockquotes: border-l-4 border-brand-500 pl-4 italic text-gray-400
-
-
-     SEO BEST PRACTICES:
-
-     - Use descriptive, keyword-rich titles (50-60 chars)
-     - Write compelling meta descriptions (150-160 chars)
-     - Use semantic HTML (article, header, section, etc.)
-     - Include alt text for all images
-     - Use internal links to other posts and main site pages
-     - Consider adding breadcrumb navigation
-
-
-     FUTURE IMPROVEMENTS TO CONSIDER:
-
-     - RSS feed generation (/blog/feed.xml)
-     - Categories/tags filtering
-     - Search functionality
-     - Author profiles (if multiple authors)
-     - Comments (Disqus, Giscus, or custom)
-     - Reading progress indicator
-     - Dark/light mode toggle
-     - Related posts based on categories
-
-     ============================================================ -->
