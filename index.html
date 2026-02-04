@@ -17,6 +17,18 @@
       gtag('js', new Date());
       gtag('config', 'G-SDS4JMQWFK');
     </script>
+
+    <!-- PostHog Analytics & Experiments -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_lcPjjHwHzWygn19kSMMgqVzNQRS76Hw3XTyaIyAEAtN', {
+            api_host: 'https://us.i.posthog.com',
+            person_profiles: 'identified_only',
+            capture_pageview: true,
+            capture_pageleave: true
+        });
+    </script>
+    <!-- End PostHog -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clowdbot - OpenClaw & Clawdbot Cloud Host | Run 24/7</title>
@@ -367,7 +379,7 @@
                         <div class="text-center">
                             <div class="text-brand-400 text-sm font-medium uppercase tracking-wide mb-2">Instance Launch</div>
                             <div class="flex items-baseline justify-center gap-2 mb-2">
-                                <span class="text-4xl font-bold text-white">$0.01</span>
+                                <span id="launch-price" class="text-4xl font-bold text-white">$0.01</span>
                                 <span class="text-gray-400 text-lg">/launch</span>
                             </div>
                             <div class="text-gray-500 text-sm mb-6">One-time fee each time you spin up</div>
@@ -399,11 +411,11 @@
                     <div class="pricing-card rounded-3xl p-8 border border-brand-500/30">
                         <div class="text-center">
                             <div class="text-brand-400 text-sm font-medium uppercase tracking-wide mb-2">LLM Usage</div>
-                            <div class="flex items-baseline justify-center gap-2 mb-2">
-                                <span class="text-4xl font-bold text-white">Market</span>
-                                <span class="text-gray-400 text-lg">price</span>
+                            <div id="llm-pricing" class="flex items-baseline justify-center gap-2 mb-2">
+                                <span id="llm-price-main" class="text-4xl font-bold text-white">Market</span>
+                                <span id="llm-price-sub" class="text-gray-400 text-lg">price</span>
                             </div>
-                            <div class="text-gray-500 text-sm mb-6">Your only ongoing cost — pay per token</div>
+                            <div id="llm-price-desc" class="text-gray-500 text-sm mb-6">Your only ongoing cost — pay per token</div>
                             <ul class="space-y-3 text-left text-sm">
                                 <li class="flex items-center gap-3">
                                     <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -670,6 +682,98 @@
                 }
             });
         });
+    </script>
+
+    <!-- PostHog Pricing Experiment -->
+    <script>
+        (function() {
+            // Pricing variants configuration
+            const variants = {
+                'control': {
+                    launchPrice: '$0.01',
+                    llmMain: 'Market',
+                    llmSub: 'price',
+                    llmDesc: 'Your only ongoing cost — pay per token'
+                },
+                'variant-a': {
+                    launchPrice: '$0.50',
+                    llmMain: 'Market',
+                    llmSub: 'price',
+                    llmDesc: 'Your only ongoing cost — pay per token'
+                },
+                'variant-b': {
+                    launchPrice: '$0.01',
+                    llmMain: 'Competitive',
+                    llmSub: 'rates',
+                    llmDesc: 'Your only ongoing cost — pay per token'
+                },
+                'variant-c': {
+                    launchPrice: '$0.50',
+                    llmMain: 'Competitive',
+                    llmSub: 'rates',
+                    llmDesc: 'Your only ongoing cost — pay per token'
+                }
+            };
+
+            function applyVariant(variantKey) {
+                const variant = variants[variantKey] || variants['control'];
+
+                // Update launch price
+                const launchPriceEl = document.getElementById('launch-price');
+                if (launchPriceEl) launchPriceEl.textContent = variant.launchPrice;
+
+                // Update LLM pricing
+                const llmMainEl = document.getElementById('llm-price-main');
+                const llmSubEl = document.getElementById('llm-price-sub');
+                const llmDescEl = document.getElementById('llm-price-desc');
+
+                if (llmMainEl) llmMainEl.textContent = variant.llmMain;
+                if (llmSubEl) llmSubEl.textContent = variant.llmSub;
+                if (llmDescEl) llmDescEl.textContent = variant.llmDesc;
+            }
+
+            // Track clicks on all "Get Started" / CTA links
+            function trackConversions() {
+                document.querySelectorAll('a[href*="clowdbot.atxp.ai"]').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const variant = posthog.getFeatureFlag('pricing-experiment') || 'control';
+                        posthog.capture('clicked_get_started', {
+                            variant: variant,
+                            link_location: this.closest('section')?.id || 'unknown',
+                            link_text: this.textContent.trim()
+                        });
+                    });
+                });
+            }
+
+            // Wait for PostHog to load and get feature flag
+            function initExperiment() {
+                if (typeof posthog !== 'undefined' && posthog.getFeatureFlag) {
+                    posthog.onFeatureFlags(function() {
+                        const variant = posthog.getFeatureFlag('pricing-experiment');
+                        if (variant) {
+                            applyVariant(variant);
+                            // Also capture that user saw this variant
+                            posthog.capture('$experiment_started', {
+                                experiment: 'pricing-experiment',
+                                variant: variant
+                            });
+                        }
+                    });
+                    trackConversions();
+                } else {
+                    // PostHog not ready, retry
+                    setTimeout(initExperiment, 100);
+                }
+            }
+
+            // Start when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initExperiment);
+            } else {
+                initExperiment();
+            }
+        })();
     </script>
 </body>
 </html>
