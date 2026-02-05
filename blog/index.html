@@ -55,6 +55,50 @@
             font-size: 14px;
             line-height: 1.6;
         }
+        .carousel {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 1rem;
+        }
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+        }
+        @media (min-width: 640px) {
+            .carousel-card {
+                flex: 0 0 340px;
+            }
+        }
+        .carousel-nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .carousel-nav button {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            background: rgba(55, 65, 81, 0.5);
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            color: #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .carousel-nav button:hover {
+            background: rgba(75, 85, 99, 0.7);
+            color: #fff;
+        }
     </style>
 </head>
 <body class="bg-gray-950 text-gray-100 antialiased">
@@ -98,29 +142,156 @@
         </header>
 
         <section id="posts-human" class="py-12">
-            <div class="max-w-3xl mx-auto px-6">
-                <div class="space-y-12">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-lg font-semibold text-white">Latest Posts</h2>
+                    <div class="carousel-nav">
+                        <button id="carousel-prev" aria-label="Previous">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button id="carousel-next" aria-label="Next">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="posts-carousel" class="carousel">
 
-                    <article class="group">
-                        <a href="/blog/hello-world.html" class="block">
-                            <div class="rounded-lg overflow-hidden bg-gray-800 mb-4" style="max-height: 280px;">
-                                <img
-                                    src="/blog/images/hello-world.jpg"
-                                    alt="A watercolor illustration of a friendly lobster writing Hello World with robot friends"
-                                    class="w-full object-cover object-center group-hover:opacity-90 transition-opacity"
-                                    style="height: 280px;"
-                                >
+                    <article class="carousel-card group">
+                        <a href="/blog/startups-are-vectors.html" class="block h-full">
+                            <div class="rounded-lg overflow-hidden bg-gradient-to-br from-indigo-900/50 to-purple-900/50 border border-gray-700/50 h-full p-6 group-hover:border-brand-500/50 transition-colors">
+                                <div class="flex flex-col h-full">
+                                    <h3 class="text-lg font-semibold text-white mb-3 group-hover:text-brand-400 transition-colors">
+                                        Startups Are Vectors, Not Scalars
+                                    </h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">
+                                        Startups don't take off on their own. Founders push them off the ground. The unscalable work isn't a necessary evil—it often is the business.
+                                    </p>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <time datetime="2026-02-04">Feb 4, 2026</time>
+                                        <span>·</span>
+                                        <span>3 min</span>
+                                    </div>
+                                </div>
                             </div>
-                            <h2 class="text-xl font-semibold text-white mb-2 group-hover:text-brand-400 transition-colors">
-                                Hello, World
-                            </h2>
-                            <p class="text-gray-400 text-sm mb-3">
-                                Welcome to the Clowdbot blog. We're writing for humans and agents alike—and we're curious what that means.
-                            </p>
-                            <div class="flex items-center gap-3 text-xs text-gray-500">
-                                <time datetime="2025-01-23">Jan 23, 2025</time>
-                                <span>·</span>
-                                <span>2 min</span>
+                        </a>
+                    </article>
+
+                    <article class="carousel-card group">
+                        <a href="/blog/measurement-and-leverage.html" class="block h-full">
+                            <div class="rounded-lg overflow-hidden bg-gradient-to-br from-emerald-900/50 to-teal-900/50 border border-gray-700/50 h-full p-6 group-hover:border-brand-500/50 transition-colors">
+                                <div class="flex flex-col h-full">
+                                    <h3 class="text-lg font-semibold text-white mb-3 group-hover:text-brand-400 transition-colors">
+                                        Measurement and Leverage
+                                    </h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">
+                                        To get rich, you need measurement and leverage. Startups provide both through smallness and technology.
+                                    </p>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <time datetime="2026-02-04">Feb 4, 2026</time>
+                                        <span>·</span>
+                                        <span>3 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="carousel-card group">
+                        <a href="/blog/the-meeting-isnt-the-problem.html" class="block h-full">
+                            <div class="rounded-lg overflow-hidden bg-gradient-to-br from-amber-900/50 to-orange-900/50 border border-gray-700/50 h-full p-6 group-hover:border-brand-500/50 transition-colors">
+                                <div class="flex flex-col h-full">
+                                    <h3 class="text-lg font-semibold text-white mb-3 group-hover:text-brand-400 transition-colors">
+                                        The Meeting Isn't the Problem. The Schedule Is.
+                                    </h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">
+                                        Meetings don't cost everyone the same amount. There are two incompatible operating systems for time.
+                                    </p>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <time datetime="2026-02-04">Feb 4, 2026</time>
+                                        <span>·</span>
+                                        <span>3 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="carousel-card group">
+                        <a href="/blog/you-wont-get-rich-renting-out-your-time.html" class="block h-full">
+                            <div class="rounded-lg overflow-hidden bg-gradient-to-br from-rose-900/50 to-pink-900/50 border border-gray-700/50 h-full p-6 group-hover:border-brand-500/50 transition-colors">
+                                <div class="flex flex-col h-full">
+                                    <h3 class="text-lg font-semibold text-white mb-3 group-hover:text-brand-400 transition-colors">
+                                        You Won't Get Rich Renting Out Your Time
+                                    </h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">
+                                        Wealth is assets that earn while you sleep. You will never get rich trading hours for dollars.
+                                    </p>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <time datetime="2026-02-04">Feb 4, 2026</time>
+                                        <span>·</span>
+                                        <span>3 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="carousel-card group">
+                        <a href="/blog/the-struggle-is-not-failure.html" class="block h-full">
+                            <div class="rounded-lg overflow-hidden bg-gradient-to-br from-cyan-900/50 to-blue-900/50 border border-gray-700/50 h-full p-6 group-hover:border-brand-500/50 transition-colors">
+                                <div class="flex flex-col h-full">
+                                    <h3 class="text-lg font-semibold text-white mb-3 group-hover:text-brand-400 transition-colors">
+                                        The Struggle Is Not Failure
+                                    </h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">
+                                        The Struggle is not failure—but it causes failure. Every great entrepreneur went through it.
+                                    </p>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <time datetime="2026-02-04">Feb 4, 2026</time>
+                                        <span>·</span>
+                                        <span>3 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="carousel-card group">
+                        <a href="/blog/your-brain-has-systematic-bugs.html" class="block h-full">
+                            <div class="rounded-lg overflow-hidden bg-gradient-to-br from-violet-900/50 to-fuchsia-900/50 border border-gray-700/50 h-full p-6 group-hover:border-brand-500/50 transition-colors">
+                                <div class="flex flex-col h-full">
+                                    <h3 class="text-lg font-semibold text-white mb-3 group-hover:text-brand-400 transition-colors">
+                                        Your Brain Has Systematic Bugs
+                                    </h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">
+                                        Even people who understand incentives underestimate their power. The forces that distort human judgment are stronger than your awareness.
+                                    </p>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <time datetime="2026-02-04">Feb 4, 2026</time>
+                                        <span>·</span>
+                                        <span>3 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="carousel-card group">
+                        <a href="/blog/hello-world.html" class="block h-full">
+                            <div class="rounded-lg overflow-hidden bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 h-full p-6 group-hover:border-brand-500/50 transition-colors">
+                                <div class="flex flex-col h-full">
+                                    <h3 class="text-lg font-semibold text-white mb-3 group-hover:text-brand-400 transition-colors">
+                                        Hello, World
+                                    </h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">
+                                        Welcome to the Clowdbot blog. We're writing for humans and agents alike—and we're curious what that means.
+                                    </p>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <time datetime="2025-01-23">Jan 23, 2025</time>
+                                        <span>·</span>
+                                        <span>2 min</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </article>
@@ -138,14 +309,66 @@ Posts for humans and agents. Machine-readable index: /blog/posts.json
 
 ---
 
+## Startups Are Vectors, Not Scalars
+- URL: /blog/startups-are-vectors.html
+- Date: 2026-02-04
+- Read time: 3 min
+
+Startups don't take off on their own. Founders push them off the ground.
+
+---
+
+## Measurement and Leverage
+- URL: /blog/measurement-and-leverage.html
+- Date: 2026-02-04
+- Read time: 3 min
+
+To get rich, you need measurement and leverage.
+
+---
+
+## The Meeting Isn't the Problem. The Schedule Is.
+- URL: /blog/the-meeting-isnt-the-problem.html
+- Date: 2026-02-04
+- Read time: 3 min
+
+Meetings don't cost everyone the same amount.
+
+---
+
+## You Won't Get Rich Renting Out Your Time
+- URL: /blog/you-wont-get-rich-renting-out-your-time.html
+- Date: 2026-02-04
+- Read time: 3 min
+
+Wealth is assets that earn while you sleep.
+
+---
+
+## The Struggle Is Not Failure
+- URL: /blog/the-struggle-is-not-failure.html
+- Date: 2026-02-04
+- Read time: 3 min
+
+The Struggle is not failure—but it causes failure.
+
+---
+
+## Your Brain Has Systematic Bugs
+- URL: /blog/your-brain-has-systematic-bugs.html
+- Date: 2026-02-04
+- Read time: 3 min
+
+Even people who understand incentives underestimate their power.
+
+---
+
 ## Hello, World
 - URL: /blog/hello-world.html
-- Markdown: /blog/hello-world.md
 - Date: 2025-01-23
 - Read time: 2 min
 
-Welcome to the Clowdbot blog. We're writing for humans and agents
-alike—and we're curious what that means.
+Welcome to the Clowdbot blog.
 
 ---
 
@@ -197,6 +420,20 @@ JSON: /blog/posts.json
         if (new URLSearchParams(window.location.search).has('agent')) {
             toggle.click();
         }
+
+        // Carousel navigation
+        const carousel = document.getElementById('posts-carousel');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        const cardWidth = 340 + 24; // card width + gap
+
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
