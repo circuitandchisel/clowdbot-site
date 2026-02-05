@@ -202,7 +202,7 @@
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="https://clowdbot.atxp.ai" rel="noopener" class="inline-flex flex-col items-center justify-center px-6 sm:px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl transition-all hover:scale-105 w-full sm:w-auto" data-ga-click="hero_launch_instance">
                             <span class="text-base sm:text-lg font-semibold">🚀 Launch Your Instance</span>
-                            <span class="text-xs sm:text-sm text-brand-200">$0.50 to launch + pay only for LLM usage</span>
+                            <span id="hero-cta-subtitle" class="text-xs sm:text-sm text-brand-200">$0.50 to launch + pay only for LLM usage</span>
                         </a>
                         <a href="#how-it-works" class="inline-flex items-center justify-center px-6 sm:px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-base sm:text-lg font-semibold rounded-xl transition-colors border border-white/20 w-full sm:w-auto" data-ga-click="hero_learn_more">
                             Learn More
@@ -369,7 +369,11 @@
                     No subscriptions, no commitments
                 </div>
                 <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">True Pay-As-You-Go Pricing</h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Only pay for LLM tokens you actually use. No hourly fees, no subscriptions.</p>
+                <p id="pricing-subtitle" class="text-xl text-gray-400 max-w-2xl mx-auto">Only pay for LLM tokens you actually use. No hourly fees, no subscriptions.</p>
+                <div id="signup-bonus-banner" class="hidden mt-4 inline-flex items-center px-5 py-2.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-base font-semibold">
+                    <span class="mr-2">🎁</span>
+                    <span id="bonus-banner-text">Get $10 free credit on signup</span>
+                </div>
             </div>
             <div class="max-w-3xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-6">
@@ -576,7 +580,7 @@
             <a href="https://clowdbot.atxp.ai" rel="noopener" class="inline-flex items-center justify-center px-10 py-5 bg-white text-brand-700 text-lg font-bold rounded-xl transition-all hover:scale-105 hover:shadow-2xl" data-ga-click="bottom_cta_launch">
                 🚀 Launch Your Instance
             </a>
-            <p class="mt-6 text-gray-400">Fund your ATXP account and get started</p>
+            <p id="bottom-cta-subtitle" class="mt-6 text-gray-400">Fund your ATXP account and get started</p>
         </div>
     </section>
 
@@ -685,6 +689,96 @@
                 }
             });
         });
+    </script>
+
+    <!-- PostHog Signup Bonus Experiment -->
+    <script>
+        (function() {
+            var variants = {
+                'control': {
+                    heroCta: '$0.50 to launch + pay only for LLM usage',
+                    pricingSubtitle: 'Only pay for LLM tokens you actually use. No hourly fees, no subscriptions.',
+                    showBonusBanner: false,
+                    bonusBannerText: '',
+                    bottomCta: 'Fund your ATXP account and get started'
+                },
+                'variant-a': {
+                    heroCta: '$0.50 to launch + get $5 free credit on signup',
+                    pricingSubtitle: 'Sign up and get $5 free credit. Then only pay for LLM tokens you use.',
+                    showBonusBanner: true,
+                    bonusBannerText: 'Get $5 free credit when you create an account',
+                    bottomCta: 'Sign up and get $5 free credit to start'
+                },
+                'variant-b': {
+                    heroCta: '$0.50 to launch + get $10 free credit on signup',
+                    pricingSubtitle: 'Sign up and get $10 free credit. Then only pay for LLM tokens you use.',
+                    showBonusBanner: true,
+                    bonusBannerText: 'Get $10 free credit when you create an account',
+                    bottomCta: 'Sign up and get $10 free credit to start'
+                }
+            };
+
+            function applyVariant(variantKey) {
+                var v = variants[variantKey] || variants['control'];
+
+                var heroCtaEl = document.getElementById('hero-cta-subtitle');
+                if (heroCtaEl) heroCtaEl.textContent = v.heroCta;
+
+                var pricingSubEl = document.getElementById('pricing-subtitle');
+                if (pricingSubEl) pricingSubEl.textContent = v.pricingSubtitle;
+
+                var bonusBanner = document.getElementById('signup-bonus-banner');
+                if (bonusBanner) {
+                    if (v.showBonusBanner) {
+                        bonusBanner.classList.remove('hidden');
+                        var bannerText = document.getElementById('bonus-banner-text');
+                        if (bannerText) bannerText.textContent = v.bonusBannerText;
+                    } else {
+                        bonusBanner.classList.add('hidden');
+                    }
+                }
+
+                var bottomCtaEl = document.getElementById('bottom-cta-subtitle');
+                if (bottomCtaEl) bottomCtaEl.textContent = v.bottomCta;
+            }
+
+            function trackConversions() {
+                document.querySelectorAll('a[href*="clowdbot.atxp.ai"]').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        var variant = posthog.getFeatureFlag('signup-bonus-experiment') || 'control';
+                        posthog.capture('clicked_get_started', {
+                            variant: variant,
+                            link_location: this.closest('section') ? this.closest('section').id : 'unknown',
+                            link_text: this.textContent.trim()
+                        });
+                    });
+                });
+            }
+
+            function initExperiment() {
+                if (typeof posthog !== 'undefined' && posthog.getFeatureFlag) {
+                    posthog.onFeatureFlags(function() {
+                        var variant = posthog.getFeatureFlag('signup-bonus-experiment');
+                        if (variant) {
+                            applyVariant(variant);
+                            posthog.capture('$experiment_started', {
+                                experiment: 'signup-bonus-experiment',
+                                variant: variant
+                            });
+                        }
+                    });
+                    trackConversions();
+                } else {
+                    setTimeout(initExperiment, 100);
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initExperiment);
+            } else {
+                initExperiment();
+            }
+        })();
     </script>
 </body>
 </html>
