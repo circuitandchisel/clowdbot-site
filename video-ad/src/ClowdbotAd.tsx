@@ -317,7 +317,7 @@ export const ClowdbotAd: React.FC = () => {
                     margin: 0,
                   }}
                 >
-                  $0.01 to launch · Pay only for what you use
+                  $0.50 to launch · Pay only for what you use
                 </p>
               </div>
             )}
