@@ -17,6 +17,17 @@
       gtag('js', new Date());
       gtag('config', 'G-SDS4JMQWFK');
     </script>
+    <!-- PostHog Analytics -->
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init rs ls yi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile setInternalOrTestUser ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug M cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      posthog.init('phc_lcPjjHwHzWygn19kSMMgqVzNQRS76Hw3XTyaIyAEAtN', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2025-11-30',
+        person_profiles: 'identified_only',
+        capture_pageview: false,
+        capture_pageleave: true
+      });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clowdbot - OpenClaw & Clawdbot Cloud Host | Run 24/7</title>
@@ -611,42 +622,48 @@
         });
     </script>
 
-    <!-- Analytics: CTA click tracking -->
+    <!-- Analytics: CTA click tracking (GA4 + PostHog) -->
     <script>
-        // Track CTA clicks via GA4
+        // Helper to track events to both GA4 and PostHog
+        function trackEvent(eventName, params) {
+            // GA4
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, params);
+            }
+            // PostHog
+            if (typeof posthog !== 'undefined' && posthog.capture) {
+                posthog.capture(eventName, params);
+            }
+        }
+
+        // Track CTA clicks
         document.querySelectorAll('[data-ga-click]').forEach(function(el) {
             el.addEventListener('click', function() {
                 var label = this.getAttribute('data-ga-click');
-                if (typeof gtag === 'function') {
-                    gtag('event', 'cta_click', {
-                        'event_category': 'engagement',
-                        'event_label': label,
-                        'cta_location': label.split('_')[0] // Extract location from label
-                    });
-                }
+                trackEvent('cta_click', {
+                    'event_category': 'engagement',
+                    'event_label': label,
+                    'cta_location': label.split('_')[0] // Extract location from label
+                });
             });
         });
 
         // Track landing page view
-        if (typeof gtag === 'function') {
-            gtag('event', 'landing_page_viewed', {
-                'event_category': 'pageview',
-                'page_location': window.location.href,
-                'referrer': document.referrer || 'direct'
-            });
-        }
+        trackEvent('landing_page_viewed', {
+            'event_category': 'pageview',
+            'page_location': window.location.href,
+            'referrer': document.referrer || 'direct'
+        });
 
         // Track time on page (every 30 seconds, max 5 minutes)
         var timeOnPage = 0;
         var timeTrackingInterval = setInterval(function() {
             timeOnPage += 30;
-            if (typeof gtag === 'function') {
-                gtag('event', 'time_on_page', {
-                    'event_category': 'engagement',
-                    'value': timeOnPage,
-                    'non_interaction': true
-                });
-            }
+            trackEvent('time_on_page', {
+                'event_category': 'engagement',
+                'value': timeOnPage,
+                'non_interaction': true
+            });
             if (timeOnPage >= 300) {
                 clearInterval(timeTrackingInterval);
             }
@@ -660,13 +677,11 @@
             scrollDepths.forEach(function(depth) {
                 if (scrollPercent >= depth && scrolledDepths.indexOf(depth) === -1) {
                     scrolledDepths.push(depth);
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'scroll_depth', {
-                            'event_category': 'engagement',
-                            'event_label': depth + '%',
-                            'value': depth
-                        });
-                    }
+                    trackEvent('scroll_depth', {
+                        'event_category': 'engagement',
+                        'event_label': depth + '%',
+                        'value': depth
+                    });
                 }
             });
         });
