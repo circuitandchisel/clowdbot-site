@@ -807,6 +807,10 @@
             var href = link.getAttribute('href') || '';
             if (href.indexOf('clowdbot.atxp.ai') === -1) return;
             if (typeof posthog === 'undefined' || !posthog.get_distinct_id) return;
+            // Create person profile before cross-domain navigation so that
+            // anonymous events (landing_page_viewed, cta_click) get a person_id
+            // and can correlate in funnels with identified events on accounts.
+            if (posthog.createPersonProfile) posthog.createPersonProfile();
             var url = new URL(href, window.location.origin);
             var hash = new URLSearchParams(url.hash.substring(1));
             hash.set('ph_distinct_id', posthog.get_distinct_id());
