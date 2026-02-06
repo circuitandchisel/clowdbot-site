@@ -2,11 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clowdbot Blog</title>
-    <description>Writing for humans and agents</description>
+    <description>Guides on hosting OpenClaw in the cloud — pricing, security, and infrastructure analysis from the Clowdbot team.</description>
     <link>https://clowd.bot/blog/</link>
     <atom:link href="https://clowd.bot/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jan 2025 10:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Feb 2026 10:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>When Your AI Assistant Can Generate Images, Music, and Video</title>
+      <link>https://clowd.bot/blog/ai-assistant-multimodal-tools.html</link>
+      <guid isPermaLink="true">https://clowd.bot/blog/ai-assistant-multimodal-tools.html</guid>
+      <pubDate>Fri, 06 Feb 2026 10:00:00 GMT</pubDate>
+      <description>Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?</description>
+    </item>
+
+    <item>
+      <title>The Real Cost of Running OpenClaw: Hosting, API Keys, and Hidden Complexity</title>
+      <link>https://clowd.bot/blog/real-cost-of-running-openclaw.html</link>
+      <guid isPermaLink="true">https://clowd.bot/blog/real-cost-of-running-openclaw.html</guid>
+      <pubDate>Thu, 05 Feb 2026 10:00:00 GMT</pubDate>
+      <description>The software is free under an MIT license. So what does it actually cost to run? The honest answer has three layers.</description>
+    </item>
+
+    <item>
+      <title>What Running OpenClaw Locally Actually Means for Your Machine</title>
+      <link>https://clowd.bot/blog/openclaw-local-vs-cloud.html</link>
+      <guid isPermaLink="true">https://clowd.bot/blog/openclaw-local-vs-cloud.html</guid>
+      <pubDate>Wed, 04 Feb 2026 10:00:00 GMT</pubDate>
+      <description>Running OpenClaw locally gives you full control — but it also means you are responsible for security, updates, API keys, and infrastructure.</description>
+    </item>
 
     <item>
       <title>Hello, World</title>

@@ -1,10 +1,40 @@
 {
   "title": "Clowdbot Blog",
-  "description": "Writing for humans and agents",
+  "description": "Guides on hosting OpenClaw in the cloud — pricing, security, and infrastructure analysis from the Clowdbot team.",
   "url": "https://clowd.bot/blog/",
   "feed": "https://clowd.bot/blog/feed.xml",
-  "updated": "2026-02-04T10:00:00Z",
+  "updated": "2026-02-06T10:00:00Z",
   "posts": [
+    {
+      "id": "ai-assistant-multimodal-tools",
+      "title": "When Your AI Assistant Can Generate Images, Music, and Video",
+      "url": "https://clowd.bot/blog/ai-assistant-multimodal-tools.html",
+      "markdown": "https://clowd.bot/blog/ai-assistant-multimodal-tools.md",
+      "excerpt": "Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?",
+      "date": "2026-02-06",
+      "readTime": "8 min",
+      "tags": ["agents", "multimodal", "tools", "atxp"]
+    },
+    {
+      "id": "real-cost-of-running-openclaw",
+      "title": "The Real Cost of Running OpenClaw: Hosting, API Keys, and Hidden Complexity",
+      "url": "https://clowd.bot/blog/real-cost-of-running-openclaw.html",
+      "markdown": "https://clowd.bot/blog/real-cost-of-running-openclaw.md",
+      "excerpt": "The software is free under an MIT license. So what does it actually cost to run? The honest answer has three layers.",
+      "date": "2026-02-05",
+      "readTime": "7 min",
+      "tags": ["pricing", "openclaw", "hosting", "api-keys"]
+    },
+    {
+      "id": "openclaw-local-vs-cloud",
+      "title": "What Running OpenClaw Locally Actually Means for Your Machine",
+      "url": "https://clowd.bot/blog/openclaw-local-vs-cloud.html",
+      "markdown": "https://clowd.bot/blog/openclaw-local-vs-cloud.md",
+      "excerpt": "Running OpenClaw locally gives you full control — but it also means you are responsible for security, updates, API keys, and infrastructure.",
+      "date": "2026-02-04",
+      "readTime": "6 min",
+      "tags": ["security", "openclaw", "local", "cloud", "hosting"]
+    },
     {
       "id": "startups-are-vectors",
       "title": "Startups Are Vectors, Not Scalars",
