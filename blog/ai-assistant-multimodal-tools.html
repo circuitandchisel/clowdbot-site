@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTHBHHGJ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- PostHog Analytics (inline for cross-domain bootstrap support) -->
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init rs ls yi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile setInternalOrTestUser ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug M cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+      var hashParams = new URLSearchParams(window.location.hash.substring(1));
+      var ph_distinct_id = hashParams.get('ph_distinct_id');
+      var ph_session_id = hashParams.get('ph_session_id');
+
+      posthog.init('phc_lcPjjHwHzWygn19kSMMgqVzNQRS76Hw3XTyaIyAEAtN', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: false,
+        capture_pageleave: true,
+        bootstrap: ph_distinct_id ? {
+          distinctID: ph_distinct_id,
+          sessionID: ph_session_id
+        } : undefined
+      });
+
+      if (ph_distinct_id) {
+        hashParams.delete('ph_distinct_id');
+        hashParams.delete('ph_session_id');
+        var remaining = hashParams.toString();
+        history.replaceState(null, '', window.location.pathname + window.location.search + (remaining ? '#' + remaining : ''));
+      }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Assistant Multimodal Tools - Clowdbot Blog</title>
+    <meta name="description" content="Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?">
+
+    <link rel="canonical" href="https://clowd.bot/blog/ai-assistant-multimodal-tools.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://clowd.bot/blog/ai-assistant-multimodal-tools.html">
+    <meta property="og:title" content="AI Assistant Multimodal Tools - Clowdbot Blog">
+    <meta property="og:description" content="Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?">
+    <meta property="og:site_name" content="Clowdbot">
+    <meta property="article:published_time" content="2026-02-06T10:00:00Z">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@atxp_ai">
+    <meta name="twitter:url" content="https://clowd.bot/blog/ai-assistant-multimodal-tools.html">
+    <meta name="twitter:title" content="AI Assistant Multimodal Tools - Clowdbot Blog">
+    <meta name="twitter:description" content="Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?">
+
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="/dist/styles.css" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "When Your AI Assistant Can Generate Images, Music, and Video",
+        "description": "Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?",
+        "author": { "@type": "Organization", "name": "ATXP", "url": "https://atxp.ai" },
+        "publisher": { "@type": "Organization", "name": "Clowdbot", "url": "https://clowd.bot" },
+        "datePublished": "2026-02-06T10:00:00Z",
+        "keywords": ["agents", "multimodal", "tools", "atxp", "ai assistant"]
+    }
+    </script>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased overflow-x-hidden">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTHBHHGJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <span class="text-2xl">☁️🦞</span>
+                    <span class="text-xl font-bold text-white">Clowdbot</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
+                    <a href="/#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="/blog/" class="text-gray-300 hover:text-white transition-colors">Blog</a>
+                </div>
+                <a href="https://accounts.atxp.ai/?loginRedirect=https%3A%2F%2Fclowdbot.atxp.ai" rel="noopener" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-lg font-medium transition-colors">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+            <nav class="mb-8">
+                <a href="/blog/" class="text-brand-400 hover:text-brand-300 transition-colors text-sm flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Back to Blog
+                </a>
+            </nav>
+
+            <header class="mb-12">
+                <div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                    <time datetime="2026-02-06">February 6, 2026</time>
+                    <span>&middot;</span>
+                    <span>8 min read</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
+                    When Your AI Assistant Can Generate Images, Music, and Video
+                </h1>
+                <p class="text-xl text-gray-400 mb-4">
+                    Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?
+                </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">agents</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">multimodal</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">tools</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">atxp</span>
+                </div>
+            </header>
+
+            <div class="prose prose-lg prose-invert max-w-none">
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">What changes when AI assistants can generate images, music, and video?</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Most AI assistants today are text in, text out. You type a prompt, they return words. But when assistants can generate images, music, video, run code, and take actions, the role of an assistant shifts&mdash;from helping you think to helping you actually complete tasks.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This shift isn't just about better models. It's about access to tools and infrastructure that expand what an assistant can deliver.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Most AI assistants are text in, text out. Useful, but limited in a specific way: the output is always in the same medium as the input.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    What happens when that constraint lifts?
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why are most AI assistants limited to text?</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    A typical AI assistant can help you write an email, but can't send it. Can describe an image, but can't create one. Can suggest a soundtrack, but can't generate the music.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    These boundaries exist for practical reasons:
+                </p>
+
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Text generation is one capability</li>
+                    <li>Image generation is another</li>
+                    <li>Email delivery is a third</li>
+                    <li>Storage, search, and automation are separate systems</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Most products specialize in one area. But real-world tasks rarely fit neatly into one medium.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    When you're trying to actually complete something&mdash;not just draft it&mdash;you end up switching between tools, copying outputs, and orchestrating workflows manually.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The AI assists. You execute.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">What changes when assistants have tool access?</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Infrastructure like <a href="https://atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP</a> allows AI agents to access a catalog of capabilities beyond text through a unified interface.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2">Examples of capabilities include:</p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">Information retrieval</h3>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Web search with structured results</li>
+                    <li>Website browsing and extraction</li>
+                    <li>Social media search and monitoring</li>
+                    <li>Topic research with synthesized answers and citations</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">Content creation</h3>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Text-to-image generation</li>
+                    <li>Text-to-music generation</li>
+                    <li>Text-to-video generation</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">Actions and automation</h3>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Sandboxed code execution</li>
+                    <li>Email sending and receiving</li>
+                    <li>File storage and asset organization</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    When an assistant has access to tools, the interface stays the same&mdash;you describe what you want&mdash;but the range of outputs expands.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    A request like:
+                </p>
+
+                <blockquote class="border-l-4 border-brand-500 pl-4 my-6 text-gray-300 italic">
+                    "Research the top competitors and create a comparison chart."
+                </blockquote>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    becomes something the assistant can complete end-to-end, not just outline.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">What new workflows become possible?</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The impact isn't just speed&mdash;it's feasibility. Tasks that were previously tedious or impractical become simple.
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">1. Compound tasks</h3>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Some workflows span multiple tools and steps, creating coordination overhead.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2">Examples:</p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Monitoring competitors and summarizing announcements weekly</li>
+                    <li>Researching a topic, generating images, and drafting a blog post</li>
+                    <li>Collecting brand mentions, analyzing sentiment, and generating a report</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    These tasks are not difficult&mdash;they're operationally annoying. Tool-equipped agents remove the coordination burden.
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">2. Faster creative iteration</h3>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Creative work improves through iteration.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2">When generation is fast and inexpensive:</p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>You can request multiple image variations and select the best</li>
+                    <li>Generate music in different styles to compare tone</li>
+                    <li>Produce rough videos to test pacing and structure</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Lower iteration cost increases experimentation and improves outcomes through selection.
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">3. Choosing the right medium automatically</h3>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Some ideas are clearer visually. Others are clearer as charts or short videos.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2">An assistant with generation capabilities can match the output to the content:</p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Data &rarr; visualization</li>
+                    <li>Concepts &rarr; illustrations</li>
+                    <li>Processes &rarr; short walkthrough videos</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The output format becomes part of the solution, not a limitation of the tool.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">What does this look like in practice?</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Consider preparing a presentation on market trends.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Text-only assistant:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Researches the topic</li>
+                    <li>Provides summaries</li>
+                    <li>Suggests charts</li>
+                    <li>Drafts slide outlines</li>
+                    <li>You create visuals and assemble assets</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Tool-equipped assistant:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Researches the topic</li>
+                    <li>Generates charts from data</li>
+                    <li>Creates header images</li>
+                    <li>Produces a short video summary</li>
+                    <li>Drafts narrative content</li>
+                    <li>Organizes assets automatically</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Same request. Different level of completion.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The difference isn't intelligence&mdash;it's capability.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why don't more assistants work this way?</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Each capability requires specialized infrastructure:
+                </p>
+
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Image and video generation require GPU resources</li>
+                    <li>Search requires crawling and proxy infrastructure</li>
+                    <li>Email requires deliverability systems</li>
+                    <li>Storage requires asset pipelines</li>
+                    <li>Automation requires sandboxing and permissions</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Most assistant developers focus on reasoning and leave the rest to users.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Platforms like ATXP provide these capabilities as shared infrastructure, allowing assistants to access tools through a standard interface such as <a href="https://modelcontextprotocol.io/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">MCP</a>.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This allows developers to build assistants that can generate, search, store, and act&mdash;not just respond.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">What are the risks of tool-equipped agents?</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    More capability introduces more risk.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    An assistant that can send emails can send incorrect emails. An assistant that can execute code can execute buggy code. An assistant that can generate media can produce inappropriate outputs.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2">Responsible systems include safeguards such as:</p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Confirmation steps for irreversible actions</li>
+                    <li>Preview modes</li>
+                    <li>Sandboxed execution environments</li>
+                    <li>Spending controls and rate limits</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Expanded capability requires expanded guardrails.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">Where this is heading</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The current generation of assistants is often limited by output modality rather than intelligence.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    As tools become integrated, the limiting factor shifts from:
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>"Can the AI understand the task?"</strong></p>
+                <p class="text-gray-300 leading-relaxed mb-2">to</p>
+                <p class="text-gray-300 leading-relaxed mb-6"><strong>"Does the AI have the capabilities required to complete it?"</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This is fundamentally an infrastructure problem.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    And infrastructure problems tend to be solved through platforms, not isolated tools.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    When assistants can generate, search, store, and act&mdash;not just write&mdash;the definition of assistance changes from:
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>help me think &rarr; help me do</strong>
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    That shift is already underway.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">FAQ: AI assistants with tool access</h2>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">Can AI assistants already generate images, music, and video?</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Yes. Many systems can generate media individually, but fewer assistants integrate multiple capabilities into a unified workflow.
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">Why is tool access important for AI agents?</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Tools allow agents to complete tasks rather than only describing how to complete them.
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">Are tool-equipped agents safe to use?</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    With proper safeguards&mdash;sandboxing, confirmations, and permissions&mdash;they can be operated safely, but oversight remains important.
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-3">Will most AI assistants work this way in the future?</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Industry trends suggest that multimodal generation and tool access are becoming standard capabilities for advanced agents.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6 italic">
+                    Explore what's possible when AI assistants have real tools. <a href="https://docs.atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP Documentation</a> covers the full capability catalog.
+                </p>
+            </div>
+
+            <footer class="mt-16 pt-8 border-t border-gray-800">
+                <div class="flex items-center justify-between">
+                    <a href="/blog/" class="text-brand-400 hover:text-brand-300 transition-colors flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        All Posts
+                    </a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="bg-gray-950 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <span class="text-2xl">☁️🦞</span>
+                    <span class="text-xl font-bold text-white">Clowdbot</span>
+                </a>
+                <div class="flex items-center gap-8 text-gray-400">
+                    <a href="/#features" class="hover:text-white transition-colors">Features</a>
+                    <a href="/#pricing" class="hover:text-white transition-colors">Pricing</a>
+                    <a href="/#faq" class="hover:text-white transition-colors">FAQ</a>
+                    <a href="https://accounts.atxp.ai/?loginRedirect=https%3A%2F%2Fclowdbot.atxp.ai" rel="noopener" class="hover:text-white transition-colors">Sign In</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
+                <p>Built with love by <a href="https://circuitandchisel.com" rel="noopener" class="text-gray-400 hover:text-white transition-colors">Circuit & Chisel</a></p>
+                <div class="flex items-center gap-6">
+                    <a href="https://docs.atxp.ai/terms" rel="noopener" class="hover:text-white transition-colors">Terms</a>
+                    <a href="https://docs.atxp.ai/privacy" rel="noopener" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Cross-domain link decoration for PostHog -->
+    <script>
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a');
+            if (!link) return;
+            var href = link.getAttribute('href') || '';
+            if (href.indexOf('clowdbot.atxp.ai') === -1) return;
+            if (typeof posthog === 'undefined' || !posthog.get_distinct_id) return;
+            var url = new URL(href, window.location.origin);
+            var hash = new URLSearchParams(url.hash.substring(1));
+            hash.set('ph_distinct_id', posthog.get_distinct_id());
+            hash.set('ph_session_id', posthog.get_session_id());
+            url.hash = hash.toString();
+            link.href = url.toString();
+        });
+    </script>
+</body>
+</html>

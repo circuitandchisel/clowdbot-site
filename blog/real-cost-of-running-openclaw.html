@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTHBHHGJ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- PostHog Analytics (inline for cross-domain bootstrap support) -->
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init rs ls yi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile setInternalOrTestUser ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug M cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+      var hashParams = new URLSearchParams(window.location.hash.substring(1));
+      var ph_distinct_id = hashParams.get('ph_distinct_id');
+      var ph_session_id = hashParams.get('ph_session_id');
+
+      posthog.init('phc_lcPjjHwHzWygn19kSMMgqVzNQRS76Hw3XTyaIyAEAtN', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: false,
+        capture_pageleave: true,
+        bootstrap: ph_distinct_id ? {
+          distinctID: ph_distinct_id,
+          sessionID: ph_session_id
+        } : undefined
+      });
+
+      if (ph_distinct_id) {
+        hashParams.delete('ph_distinct_id');
+        hashParams.delete('ph_session_id');
+        var remaining = hashParams.toString();
+        history.replaceState(null, '', window.location.pathname + window.location.search + (remaining ? '#' + remaining : ''));
+      }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Real Cost of Running OpenClaw - Clowdbot Blog</title>
+    <meta name="description" content="The software is free under an MIT license. So what does it actually cost to run? The honest answer has three layers.">
+
+    <link rel="canonical" href="https://clowd.bot/blog/real-cost-of-running-openclaw.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://clowd.bot/blog/real-cost-of-running-openclaw.html">
+    <meta property="og:title" content="The Real Cost of Running OpenClaw - Clowdbot Blog">
+    <meta property="og:description" content="The software is free under an MIT license. So what does it actually cost to run? The honest answer has three layers.">
+    <meta property="og:site_name" content="Clowdbot">
+    <meta property="article:published_time" content="2026-02-05T10:00:00Z">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@atxp_ai">
+    <meta name="twitter:url" content="https://clowd.bot/blog/real-cost-of-running-openclaw.html">
+    <meta name="twitter:title" content="The Real Cost of Running OpenClaw - Clowdbot Blog">
+    <meta name="twitter:description" content="The software is free under an MIT license. So what does it actually cost to run? The honest answer has three layers.">
+
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="/dist/styles.css" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Real Cost of Running OpenClaw: Hosting, API Keys, and Hidden Complexity",
+        "description": "The software is free under an MIT license. So what does it actually cost to run? The honest answer has three layers.",
+        "author": { "@type": "Organization", "name": "ATXP", "url": "https://atxp.ai" },
+        "publisher": { "@type": "Organization", "name": "Clowdbot", "url": "https://clowd.bot" },
+        "datePublished": "2026-02-05T10:00:00Z",
+        "keywords": ["pricing", "openclaw", "hosting", "api-keys", "cost"]
+    }
+    </script>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased overflow-x-hidden">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTHBHHGJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <span class="text-2xl">☁️🦞</span>
+                    <span class="text-xl font-bold text-white">Clowdbot</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
+                    <a href="/#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="/blog/" class="text-gray-300 hover:text-white transition-colors">Blog</a>
+                </div>
+                <a href="https://accounts.atxp.ai/?loginRedirect=https%3A%2F%2Fclowdbot.atxp.ai" rel="noopener" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-lg font-medium transition-colors">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+            <nav class="mb-8">
+                <a href="/blog/" class="text-brand-400 hover:text-brand-300 transition-colors text-sm flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Back to Blog
+                </a>
+            </nav>
+
+            <header class="mb-12">
+                <div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                    <time datetime="2026-02-05">February 5, 2026</time>
+                    <span>&middot;</span>
+                    <span>7 min read</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
+                    The Real Cost of Running OpenClaw: Hosting, API Keys, and Hidden Complexity
+                </h1>
+                <p class="text-xl text-gray-400 mb-4">
+                    The software is free under an MIT license. So what does it actually cost to run? The honest answer has three layers.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">pricing</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">openclaw</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">hosting</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">api-keys</span>
+                </div>
+            </header>
+
+            <div class="prose prose-lg prose-invert max-w-none">
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The pitch for <a href="https://docs.openclaw.ai/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">OpenClaw</a> is compelling: an open-source AI assistant that runs in your terminal, learns your preferences, and actually takes action. The software is free under an MIT license. So what does it actually cost to run?
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The honest answer has three layers, and most guides only cover the first one.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">Layer 1: Hosting</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    OpenClaw needs to run somewhere. Your options:
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Local (Your Machine)</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Cost: $0</li>
+                    <li>Catch: Stops when your laptop sleeps. No 24/7 availability. Your machine becomes the server.</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>VPS / Cloud VM</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li><a href="https://www.digitalocean.com/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">DigitalOcean</a>: $6-24/month depending on droplet size</li>
+                    <li><a href="https://railway.app/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Railway</a>: $5 subscription + ~$5-15 usage</li>
+                    <li><a href="https://www.hostinger.com/vps" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Hostinger VPS</a>: $5-12/month</li>
+                    <li><a href="https://www.alibabacloud.com/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Alibaba Cloud</a>: Starting at $4-8/month</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Managed Hosting</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li><a href="https://openclaw.host/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">openclaw.host</a>: &euro;15/month (~$16)</li>
+                    <li>Various other providers: $15-30/month</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    So far, relatively straightforward. Pick a tier, pay a predictable monthly fee. But this is just infrastructure. The AI part costs extra.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">Layer 2: API Costs</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    OpenClaw needs an LLM to function. You provide API credentials&mdash;typically <a href="https://www.anthropic.com/pricing" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Anthropic</a> or <a href="https://openai.com/pricing" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">OpenAI</a>&mdash;and pay per token.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This is where estimates diverge wildly, because usage patterns vary:
+                </p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="py-3 pr-4 text-gray-200 font-semibold">Usage Pattern</th>
+                                <th class="py-3 text-gray-200 font-semibold">Typical Monthly Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">Light (1-2 hrs/day, simple tasks)</td>
+                                <td class="py-3">$10-30</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">Regular (daily development work)</td>
+                                <td class="py-3">$40-80</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">Heavy (proactive assistant, complex tasks)</td>
+                                <td class="py-3">$150-300+</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">Power user with Claude Opus 4.5</td>
+                                <td class="py-3">$300-750</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The <a href="https://www.eesel.ai/blog/openclaw-ai-pricing" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">realistic pricing guide from eesel</a> puts most users at $10-150/month. But "most users" masks significant variance. If you're using OpenClaw as a genuine daily driver with capable models, expect the higher end.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>The API key problem</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Beyond cost, there's friction. You need to:
+                </p>
+
+                <ol class="list-decimal list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Create accounts with Anthropic, OpenAI, or other providers</li>
+                    <li>Generate API keys</li>
+                    <li>Configure billing and spending limits</li>
+                    <li>Store credentials securely on your machine</li>
+                    <li>Monitor usage across multiple dashboards</li>
+                    <li>Rotate keys if they're ever exposed</li>
+                </ol>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    None of this is hard. All of it is overhead.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">Layer 3: Hidden Complexity</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This is the layer that doesn't show up in pricing calculators.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Time cost of setup</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Getting OpenClaw running locally or on a VPS isn't one-click. You're configuring Docker, setting environment variables, managing SSL certificates, and debugging networking issues. <a href="https://help.apiyi.com/en/openclaw-cloud-vs-local-deployment-guide-en.html" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">The deployment guides</a> are thorough, but thorough documentation implies a non-trivial process.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    First-time setup: 2-4 hours for someone comfortable with servers. More if you're not.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Time cost of maintenance</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    OpenClaw is actively developed. Updates matter&mdash;both for features and security patches. Running your own instance means:
+                </p>
+
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Monitoring for releases</li>
+                    <li>Testing updates before deploying</li>
+                    <li>Handling breaking changes</li>
+                    <li>Managing downtime during updates</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Budget 1-2 hours per month for maintenance, more during major releases.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Time cost of security</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    If you read our piece on <a href="/blog/openclaw-local-vs-cloud.html" class="text-brand-400 hover:text-brand-300 transition-colors">what running OpenClaw locally means for your machine</a>, you know the security surface isn't trivial. Staying current on vulnerabilities, auditing skills, and hardening your configuration takes time.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Some people enjoy this work. Most people are trying to get other things done.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Math, Honestly</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    For a typical user running OpenClaw on a VPS with moderate usage:
+                </p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="py-3 pr-4 text-gray-200 font-semibold">Line Item</th>
+                                <th class="py-3 text-gray-200 font-semibold">Monthly Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">VPS hosting</td>
+                                <td class="py-3">$10-20</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">API costs (Anthropic/OpenAI)</td>
+                                <td class="py-3">$40-80</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">Your time (setup amortized + maintenance)</td>
+                                <td class="py-3">2-4 hrs</td>
+                            </tr>
+                            <tr class="border-b border-gray-800 font-semibold">
+                                <td class="py-3 pr-4">Total</td>
+                                <td class="py-3">$50-100 + your time</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    For managed hosting that handles infrastructure but still requires your API keys:
+                </p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="py-3 pr-4 text-gray-200 font-semibold">Line Item</th>
+                                <th class="py-3 text-gray-200 font-semibold">Monthly Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">Managed hosting</td>
+                                <td class="py-3">$15-25</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">API costs</td>
+                                <td class="py-3">$40-80</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 pr-4">Your time (API management, monitoring)</td>
+                                <td class="py-3">1-2 hrs</td>
+                            </tr>
+                            <tr class="border-b border-gray-800 font-semibold">
+                                <td class="py-3 pr-4">Total</td>
+                                <td class="py-3">$55-105 + your time</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The managed option costs slightly more in dollars, slightly less in time. Neither eliminates the API key problem.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Pay-As-You-Go Actually Looks Like</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <a href="https://clowd.bot" class="text-brand-400 hover:text-brand-300 transition-colors">Clowdbot</a> takes a different approach: you pay for what you use, and nothing else.
+                </p>
+
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li><strong>Launch fee</strong>: $0.01 per instance</li>
+                    <li><strong>Compute</strong>: Billed only when the instance is active</li>
+                    <li><strong>LLM tokens</strong>: Pay-per-use through <a href="https://atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP</a>'s unified gateway</li>
+                    <li><strong>No API keys to manage</strong>: ATXP handles provider credentials</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Here's what changes:
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>No monthly baseline</strong>. If you don't use OpenClaw for two weeks, you don't pay for two weeks. Traditional hosting charges whether you're active or not.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>No API key juggling</strong>. You don't create Anthropic and OpenAI accounts, generate keys, configure billing, or worry about credential exposure. ATXP provides access to Claude, GPT, Gemini, and Llama through a single endpoint.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>Predictable per-use costs</strong>. You're paying for tokens, not for idle infrastructure. Heavy users might pay more than a subscription; light users pay less. The cost matches the value delivered.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>The comparison that matters</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    For someone who uses OpenClaw a few times a week:
+                </p>
+
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Traditional hosting: ~$25-50/month (mostly idle)</li>
+                    <li>Clowdbot: A few dollars (active usage only)</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    For someone using it heavily every day:
+                </p>
+
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Traditional hosting: ~$80-150/month</li>
+                    <li>Clowdbot: Comparable, possibly more&mdash;but with no management overhead</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The breakeven point depends on your usage pattern. But the hidden costs&mdash;API key management, security maintenance, infrastructure updates&mdash;don't show up in either column, and they favor the managed approach.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">When Each Model Makes Sense</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Self-hosted or VPS makes sense if you:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Have infrastructure expertise and enjoy managing systems</li>
+                    <li>Need specific compliance controls or air-gapped operation</li>
+                    <li>Want to optimize costs through reserved instances or spot pricing</li>
+                    <li>Use OpenClaw intensively enough that fixed costs amortize well</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Pay-as-you-go makes sense if you:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Value time more than marginal cost savings</li>
+                    <li>Use OpenClaw intermittently or unpredictably</li>
+                    <li>Don't want to manage API keys across multiple providers</li>
+                    <li>Want 24/7 availability without server maintenance</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Managed hosting (with API keys) sits in between:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Less infrastructure work than self-hosting</li>
+                    <li>Still requires API key management</li>
+                    <li>Fixed monthly cost whether you use it or not</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Honest Summary</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Running OpenClaw isn't free, even though the software is. The real cost is hosting + API usage + your time, and that last component is easy to underestimate.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Pay-as-you-go doesn't eliminate costs&mdash;it aligns them with usage and offloads complexity. Whether that tradeoff works for you depends on how you value your time and how predictably you use the tool.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The pricing model that saves you money is the one that matches how you actually work.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6 italic">
+                    Curious about usage-based pricing? <a href="https://clowd.bot" class="text-brand-400 hover:text-brand-300 transition-colors">Try Clowdbot</a>&mdash;$0.01 to launch, then pay only for what you use.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mt-12 mb-2"><strong>Further Reading:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li><a href="https://www.aifreeapi.com/en/posts/clawdbot-pricing-cost-to-run" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">OpenClaw Pricing &amp; Cost Guide</a> &mdash; Comprehensive breakdown</li>
+                    <li><a href="https://help.apiyi.com/en/openclaw-cloud-vs-local-deployment-guide-en.html" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Cloud vs Local Deployment Comparison</a> &mdash; Technical tradeoffs</li>
+                    <li><a href="https://www.anthropic.com/pricing" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Anthropic API Pricing</a> &mdash; Current Claude model costs</li>
+                    <li><a href="https://docs.atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP Documentation</a> &mdash; Unified LLM gateway details</li>
+                </ul>
+            </div>
+
+            <footer class="mt-16 pt-8 border-t border-gray-800">
+                <div class="flex items-center justify-between">
+                    <a href="/blog/" class="text-brand-400 hover:text-brand-300 transition-colors flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        All Posts
+                    </a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="bg-gray-950 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <span class="text-2xl">☁️🦞</span>
+                    <span class="text-xl font-bold text-white">Clowdbot</span>
+                </a>
+                <div class="flex items-center gap-8 text-gray-400">
+                    <a href="/#features" class="hover:text-white transition-colors">Features</a>
+                    <a href="/#pricing" class="hover:text-white transition-colors">Pricing</a>
+                    <a href="/#faq" class="hover:text-white transition-colors">FAQ</a>
+                    <a href="https://accounts.atxp.ai/?loginRedirect=https%3A%2F%2Fclowdbot.atxp.ai" rel="noopener" class="hover:text-white transition-colors">Sign In</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
+                <p>Built with love by <a href="https://circuitandchisel.com" rel="noopener" class="text-gray-400 hover:text-white transition-colors">Circuit & Chisel</a></p>
+                <div class="flex items-center gap-6">
+                    <a href="https://docs.atxp.ai/terms" rel="noopener" class="hover:text-white transition-colors">Terms</a>
+                    <a href="https://docs.atxp.ai/privacy" rel="noopener" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Cross-domain link decoration for PostHog -->
+    <script>
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a');
+            if (!link) return;
+            var href = link.getAttribute('href') || '';
+            if (href.indexOf('clowdbot.atxp.ai') === -1) return;
+            if (typeof posthog === 'undefined' || !posthog.get_distinct_id) return;
+            var url = new URL(href, window.location.origin);
+            var hash = new URLSearchParams(url.hash.substring(1));
+            hash.set('ph_distinct_id', posthog.get_distinct_id());
+            hash.set('ph_session_id', posthog.get_session_id());
+            url.hash = hash.toString();
+            link.href = url.toString();
+        });
+    </script>
+</body>
+</html>
