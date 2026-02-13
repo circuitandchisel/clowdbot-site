@@ -703,30 +703,35 @@
         });
     </script>
 
-    <!-- Cross-domain link decoration for PostHog -->
+    <!-- Cross-domain link decoration for PostHog identity stitching -->
     <script>
         document.addEventListener('click', function(e) {
             var link = e.target.closest('a');
             if (!link) return;
             var href = link.getAttribute('href') || '';
             if (href.indexOf('clowdbot.atxp.ai') === -1) return;
-            if (typeof posthog === 'undefined' || !posthog.get_distinct_id) return;
-            // Create person profile before cross-domain navigation so that
-            // anonymous events (landing_page_viewed, cta_click) get a person_id
-            // and can correlate in funnels with identified events on accounts.
-            if (posthog.createPersonProfile) posthog.createPersonProfile();
+
             var url = new URL(href, window.location.origin);
-            // Auth login links use query params (server needs to read them before
-            // OIDC redirect); other links use hash params (client-side only).
-            if (url.pathname.indexOf('/api/v2/auth/login') !== -1) {
-                url.searchParams.set('ph_distinct_id', posthog.get_distinct_id());
-                url.searchParams.set('ph_session_id', posthog.get_session_id());
-            } else {
-                var hash = new URLSearchParams(url.hash.substring(1));
-                hash.set('ph_distinct_id', posthog.get_distinct_id());
-                hash.set('ph_session_id', posthog.get_session_id());
-                url.hash = hash.toString();
+
+            // Generate a ph_id for server-side identity stitching (works even if PostHog JS is blocked)
+            var phId = crypto.randomUUID();
+            url.searchParams.set('ph_id', phId);
+
+            // If PostHog JS is available, also pass cross-domain session params
+            if (typeof posthog !== 'undefined' && posthog.get_distinct_id) {
+                if (posthog.createPersonProfile) posthog.createPersonProfile();
+                // Auth login links use query params (server reads before OIDC redirect)
+                if (url.pathname.indexOf('/api/v2/auth/login') !== -1) {
+                    url.searchParams.set('ph_distinct_id', posthog.get_distinct_id());
+                    url.searchParams.set('ph_session_id', posthog.get_session_id());
+                } else {
+                    var hash = new URLSearchParams(url.hash.substring(1));
+                    hash.set('ph_distinct_id', posthog.get_distinct_id());
+                    hash.set('ph_session_id', posthog.get_session_id());
+                    url.hash = hash.toString();
+                }
             }
+
             link.href = url.toString();
         });
     </script>
