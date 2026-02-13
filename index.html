@@ -703,7 +703,7 @@
         });
     </script>
 
-    <!-- Cross-domain link decoration for PostHog identity stitching -->
+    <!-- Cross-domain link decoration: append ph_id for server-side identity stitching -->
     <script>
         document.addEventListener('click', function(e) {
             var link = e.target.closest('a');
@@ -712,26 +712,7 @@
             if (href.indexOf('clowdbot.atxp.ai') === -1) return;
 
             var url = new URL(href, window.location.origin);
-
-            // Generate a ph_id for server-side identity stitching (works even if PostHog JS is blocked)
-            var phId = crypto.randomUUID();
-            url.searchParams.set('ph_id', phId);
-
-            // If PostHog JS is available, also pass cross-domain session params
-            if (typeof posthog !== 'undefined' && posthog.get_distinct_id) {
-                if (posthog.createPersonProfile) posthog.createPersonProfile();
-                // Auth login links use query params (server reads before OIDC redirect)
-                if (url.pathname.indexOf('/api/v2/auth/login') !== -1) {
-                    url.searchParams.set('ph_distinct_id', posthog.get_distinct_id());
-                    url.searchParams.set('ph_session_id', posthog.get_session_id());
-                } else {
-                    var hash = new URLSearchParams(url.hash.substring(1));
-                    hash.set('ph_distinct_id', posthog.get_distinct_id());
-                    hash.set('ph_session_id', posthog.get_session_id());
-                    url.hash = hash.toString();
-                }
-            }
-
+            url.searchParams.set('ph_id', crypto.randomUUID());
             link.href = url.toString();
         });
     </script>
