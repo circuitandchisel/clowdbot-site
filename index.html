@@ -703,16 +703,17 @@
         });
     </script>
 
-    <!-- Cross-domain link decoration: append ph_id for server-side identity stitching -->
+    <!-- Cross-domain link decoration for PostHog -->
     <script>
         document.addEventListener('click', function(e) {
             var link = e.target.closest('a');
             if (!link) return;
             var href = link.getAttribute('href') || '';
             if (href.indexOf('clowdbot.atxp.ai') === -1) return;
-
+            if (typeof posthog === 'undefined' || !posthog.get_distinct_id) return;
+            if (posthog.createPersonProfile) posthog.createPersonProfile();
             var url = new URL(href, window.location.origin);
-            url.searchParams.set('ph_id', crypto.randomUUID());
+            url.searchParams.set('ph_id', posthog.get_distinct_id());
             link.href = url.toString();
         });
     </script>
