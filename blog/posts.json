@@ -33,60 +33,6 @@
       "tags": ["security", "openclaw", "local", "cloud", "hosting"]
     },
     {
-      "id": "startups-are-vectors",
-      "title": "Startups Are Vectors, Not Scalars",
-      "url": "https://clowd.bot/blog/startups-are-vectors.html",
-      "excerpt": "Startups don't take off on their own. Founders push them off the ground. The unscalable work isn't a necessary evil—it often is the business at that stage.",
-      "date": "2026-02-04",
-      "readTime": "3 min",
-      "tags": ["startups", "founders", "agents"]
-    },
-    {
-      "id": "measurement-and-leverage",
-      "title": "Measurement and Leverage",
-      "url": "https://clowd.bot/blog/measurement-and-leverage.html",
-      "excerpt": "To get rich, you need measurement and leverage. Startups provide both through smallness and technology.",
-      "date": "2026-02-04",
-      "readTime": "3 min",
-      "tags": ["wealth", "startups", "agents"]
-    },
-    {
-      "id": "the-meeting-isnt-the-problem",
-      "title": "The Meeting Isn't the Problem. The Schedule Is.",
-      "url": "https://clowd.bot/blog/the-meeting-isnt-the-problem.html",
-      "excerpt": "Meetings don't cost everyone the same amount. There are two incompatible operating systems for time, and confusing them destroys maker productivity.",
-      "date": "2026-02-04",
-      "readTime": "3 min",
-      "tags": ["productivity", "meetings", "agents"]
-    },
-    {
-      "id": "you-wont-get-rich-renting-out-your-time",
-      "title": "You Won't Get Rich Renting Out Your Time",
-      "url": "https://clowd.bot/blog/you-wont-get-rich-renting-out-your-time.html",
-      "excerpt": "Wealth is assets that earn while you sleep. You will never get rich trading hours for dollars. Real wealth requires owning equity.",
-      "date": "2026-02-04",
-      "readTime": "3 min",
-      "tags": ["wealth", "careers", "agents"]
-    },
-    {
-      "id": "the-struggle-is-not-failure",
-      "title": "The Struggle Is Not Failure",
-      "url": "https://clowd.bot/blog/the-struggle-is-not-failure.html",
-      "excerpt": "The Struggle is not failure—but it causes failure. Every great entrepreneur went through it. Surviving it is where greatness originates.",
-      "date": "2026-02-04",
-      "readTime": "3 min",
-      "tags": ["startups", "founders", "agents"]
-    },
-    {
-      "id": "your-brain-has-systematic-bugs",
-      "title": "Your Brain Has Systematic Bugs",
-      "url": "https://clowd.bot/blog/your-brain-has-systematic-bugs.html",
-      "excerpt": "Even people who understand incentives underestimate their power. The forces that distort human judgment are stronger than your awareness of them.",
-      "date": "2026-02-04",
-      "readTime": "3 min",
-      "tags": ["psychology", "decision-making", "agents"]
-    },
-    {
       "id": "hello-world",
       "title": "Hello, World",
       "url": "https://clowd.bot/blog/hello-world.html",

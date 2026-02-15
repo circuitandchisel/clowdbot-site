@@ -23,7 +23,7 @@ How blog posts go from idea to deployed on [clowd.bot/blog](https://clowd.bot/bl
 
 ### 4. Convert to HTML
 - Convert the approved Markdown to a full HTML page
-- Use an existing post (e.g., `blog/measurement-and-leverage.html`) as the template
+- Use an existing post (e.g., `blog/hello-world.html`) as the template
 - Template includes: GTM, PostHog analytics, Open Graph tags, Twitter Cards, BlogPosting structured data, site nav, site footer, cross-domain link decoration script
 - **Do not deploy Markdown files.** Only `.html` files go into the repo.
 - Output: `blog/[slug].html`
