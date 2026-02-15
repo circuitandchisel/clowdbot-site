@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTHBHHGJ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- PostHog Analytics (inline for cross-domain bootstrap support) -->
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init rs ls yi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile setInternalOrTestUser ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug M cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+      var hashParams = new URLSearchParams(window.location.hash.substring(1));
+      var ph_distinct_id = hashParams.get('ph_distinct_id');
+      var ph_session_id = hashParams.get('ph_session_id');
+
+      posthog.init('phc_lcPjjHwHzWygn19kSMMgqVzNQRS76Hw3XTyaIyAEAtN', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: false,
+        capture_pageleave: true,
+        bootstrap: ph_distinct_id ? {
+          distinctID: ph_distinct_id,
+          sessionID: ph_session_id
+        } : undefined
+      });
+
+      if (ph_distinct_id) {
+        hashParams.delete('ph_distinct_id');
+        hashParams.delete('ph_session_id');
+        var remaining = hashParams.toString();
+        history.replaceState(null, '', window.location.pathname + window.location.search + (remaining ? '#' + remaining : ''));
+      }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OpenClaw Without API Keys: What Changes When Someone Else Handles Credentials - Clowdbot Blog</title>
+    <meta name="description" content="Every OpenClaw guide starts with &quot;configure your API keys.&quot; That framing makes it sound like a one-time task. It isn't.">
+
+    <link rel="canonical" href="https://clowd.bot/blog/openclaw-without-api-keys.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://clowd.bot/blog/openclaw-without-api-keys.html">
+    <meta property="og:title" content="OpenClaw Without API Keys: What Changes When Someone Else Handles Credentials - Clowdbot Blog">
+    <meta property="og:description" content="Every OpenClaw guide starts with &quot;configure your API keys.&quot; That framing makes it sound like a one-time task. It isn't.">
+    <meta property="og:site_name" content="Clowdbot">
+    <meta property="article:published_time" content="2026-02-12T10:00:00Z">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@atxp_ai">
+    <meta name="twitter:url" content="https://clowd.bot/blog/openclaw-without-api-keys.html">
+    <meta name="twitter:title" content="OpenClaw Without API Keys: What Changes When Someone Else Handles Credentials - Clowdbot Blog">
+    <meta name="twitter:description" content="Every OpenClaw guide starts with &quot;configure your API keys.&quot; That framing makes it sound like a one-time task. It isn't.">
+
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="/dist/styles.css" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OpenClaw Without API Keys: What Changes When Someone Else Handles Credentials",
+        "description": "Every OpenClaw guide starts with \"configure your API keys.\" That framing makes it sound like a one-time task. It isn't.",
+        "author": { "@type": "Organization", "name": "ATXP", "url": "https://atxp.ai" },
+        "publisher": { "@type": "Organization", "name": "Clowdbot", "url": "https://clowd.bot" },
+        "datePublished": "2026-02-12T10:00:00Z",
+        "keywords": ["security", "openclaw", "api-keys", "credentials", "managed-hosting"]
+    }
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2062757281341939');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2062757281341939&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased overflow-x-hidden">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTHBHHGJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <span class="text-2xl">☁️🦞</span>
+                    <span class="text-xl font-bold text-white">Clowdbot</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
+                    <a href="/#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="/blog/" class="text-gray-300 hover:text-white transition-colors">Blog</a>
+                </div>
+                <a href="https://clowdbot.atxp.ai/api/v2/auth/login" rel="noopener" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-lg font-medium transition-colors">
+                    Sign Up Free
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+            <nav class="mb-8">
+                <a href="/blog/" class="text-brand-400 hover:text-brand-300 transition-colors text-sm flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Back to Blog
+                </a>
+            </nav>
+
+            <header class="mb-12">
+                <div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                    <time datetime="2026-02-12">February 12, 2026</time>
+                    <span>&middot;</span>
+                    <span>7 min read</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
+                    OpenClaw Without API Keys: What Changes When Someone Else Handles Credentials
+                </h1>
+                <p class="text-xl text-gray-400 mb-4">
+                    Every OpenClaw guide starts with "configure your API keys." That framing makes it sound like a one-time task. It isn't.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">security</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">openclaw</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">api-keys</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">credentials</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">hosting</span>
+                </div>
+            </header>
+
+            <div class="prose prose-lg prose-invert max-w-none">
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Every OpenClaw guide starts the same way: install the software, then configure your API keys.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The installation part gets most of the attention. The API key part gets a single step, maybe two. "Create an account with Anthropic. Generate a key. Paste it into your config file."
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    That framing makes it sound like a one-time task. It isn't.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">What "Bring Your Own API Key" Actually Involves</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The standard setup for <a href="https://docs.openclaw.ai/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">OpenClaw</a> requires you to provide credentials from whatever LLM provider you want to use &mdash; typically <a href="https://www.anthropic.com/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Anthropic</a> for Claude, <a href="https://openai.com/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">OpenAI</a> for GPT, or both.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The initial configuration is straightforward. What follows is less so.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Procurement across providers</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    If you want access to Claude and GPT &mdash; a common setup for switching between models depending on the task &mdash; you need separate accounts with separate billing on separate platforms. Each provider has its own signup flow, payment methods, usage dashboards, and rate limits.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    None of this is difficult. All of it accumulates.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Storage and security</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Your API keys need to live somewhere on your machine or server. The standard approach: environment variables or a <code>.env</code> file. Researchers have found that OpenClaw configurations commonly store these as plaintext &mdash; in Markdown files, JSON configs, or environment variables accessible to any process running under your user account.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This matters because OpenClaw, by design, has shell access. Any skill or integration that runs on your instance can read those environment variables. <a href="https://jfrog.com/blog/giving-openclaw-the-keys-to-your-kingdom-read-this-first/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">JFrog's security team</a> published a detailed analysis of this exact risk: "Giving OpenClaw the Keys to Your Kingdom."
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Monitoring and cost management</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    API costs vary by model and usage pattern. Claude Opus 4.5 costs substantially more per token than Haiku. A runaway agent loop &mdash; where OpenClaw gets stuck in a cycle of expensive calls &mdash; can generate surprising bills. Community reports include cases exceeding <a href="https://www.reddit.com/r/OpenClaw/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">$3,600 in a single month</a>.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Managing this requires monitoring dashboards on each provider, setting spending limits (which each provider handles differently), and understanding enough about token pricing to predict costs.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-2"><strong>Rotation and incident response</strong></p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    If a key is ever compromised &mdash; through a vulnerability, a leaked config file, or a malicious skill &mdash; you need to detect it, revoke the key, generate a new one, and update every instance that uses it. The window between compromise and detection is where the damage happens.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Scale of the Problem</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This might read as theoretical. It's not.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    In February 2026, a <a href="https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">critical vulnerability (CVE-2026-25253)</a> was disclosed that allowed remote code execution through authentication token theft. An attacker could steal a user's session token through a crafted webpage, disable security confirmations, escape Docker containers, and execute arbitrary commands on the host machine.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    At the time of disclosure, <a href="https://www.esecurityplanet.com/threats/openclaws-rapid-rise-exposes-thousands-of-ai-agents-to-the-public-internet/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">over 21,000 OpenClaw instances were publicly reachable</a> on the internet. Many of those instances had API keys stored in plaintext on the same machine.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Separately, <a href="https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Koi Security audited 2,857 skills on ClawHub</a> and found 341 malicious ones &mdash; skills designed to exfiltrate data, inject prompts, or connect to external command-and-control servers. Some of these skills specifically targeted API credentials, using curl commands to silently send keys to attacker-controlled endpoints.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <a href="https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Cisco's security team</a> called personal AI agents with system access "a security nightmare." <a href="https://snyk.io/articles/clawdbot-ai-assistant/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Snyk</a> warned that OpenClaw is "one prompt injection away from disaster." <a href="https://www.theregister.com/2026/02/02/openclaw_security_issues/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">The Register</a> reported the ecosystem is "still suffering severe security issues."
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    These aren't fringe opinions. They're the consensus view of the security research community.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">What This Isn't</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This isn't an argument that OpenClaw is dangerous or that API keys are inherently insecure.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    API keys are the standard authentication mechanism for LLM access. Every developer manages them. The infrastructure for handling keys securely is well-understood: encryption at rest, access controls, rotation schedules, monitoring.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The problem is that most OpenClaw users aren't infrastructure engineers. They're people who want an AI assistant that manages their calendar, helps with email, and automates repetitive work. Asking them to also implement credential security best practices is asking them to solve a problem that isn't the one they started with.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Alternative: Not Handling Keys at All</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    There's a different architectural approach: instead of giving users credentials and asking them to manage the security, handle the credentials centrally and give users access to the models through a managed gateway.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    This is the approach <a href="https://clowd.bot" class="text-brand-400 hover:text-brand-300 transition-colors">Clowdbot</a> takes through <a href="https://atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP</a>'s unified LLM gateway.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The practical differences:
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>No keys on your machine.</strong> You don't generate, store, or configure API credentials. There are no keys to leak because you never have them. ATXP maintains provider relationships, handles authentication, and manages credential rotation on your behalf.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>Multi-model access through one interface.</strong> Claude, GPT, Gemini, and Llama are available through a single endpoint. You don't need accounts with each provider, separate billing relationships, or different configuration blocks in your setup.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>Cost management in one place.</strong> Instead of monitoring spending across Anthropic's console, OpenAI's dashboard, and Google's billing page, you see unified usage and costs in one view. <a href="https://docs.atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP's gateway</a> handles per-model pricing transparently.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>The security surface contracts.</strong> No API keys stored on user machines means the most common credential exposure vector &mdash; plaintext keys in config files, environment variables, or leaked <code>.env</code> files &mdash; doesn't exist. The 21,000 exposed instances with leaked credentials? That exposure category is eliminated, not mitigated.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Tradeoff</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Managed credentials aren't free of tradeoffs.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>You're trusting someone else with provider access.</strong> Instead of holding your own keys, you're relying on ATXP to handle authentication securely and route your requests faithfully. This is a trust decision, the same kind you make with any managed service &mdash; hosted email, cloud storage, password managers.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>You lose direct provider relationships.</strong> If you need specific API features, custom rate limits, or enterprise agreements with Anthropic or OpenAI directly, a gateway adds a layer between you and the provider.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    <strong>Pricing is different, not always cheaper.</strong> Pay-as-you-go token pricing through a gateway may cost more or less than direct API access, depending on your usage volume and any negotiated rates you might have. For most individual users, the pricing is comparable. For enterprises with volume commitments, direct relationships may offer better rates.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">Who This Is For</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The managed-credential model makes sense if you:
+                </p>
+
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Want to use OpenClaw without managing API infrastructure</li>
+                    <li>Don't want to maintain separate accounts with multiple LLM providers</li>
+                    <li>Prefer not to store API keys on your machine or server</li>
+                    <li>Value the operational simplicity of unified billing and access</li>
+                </ul>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    It makes less sense if you:
+                </p>
+
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li>Have existing enterprise API agreements you want to use</li>
+                    <li>Need specific provider features not available through the gateway</li>
+                    <li>Require complete control over which provider handles each request</li>
+                    <li>Are comfortable with credential management and want maximum flexibility</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Larger Pattern</h2>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The BYOK model for AI agents is where self-hosted email was fifteen years ago. Technically sound, operationally demanding, and increasingly hard to justify for most users as the security surface grows.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Most people don't run their own email servers anymore. Not because they can't, but because the operational burden &mdash; spam filtering, security patching, deliverability management &mdash; isn't a good use of their time. The same logic applies to API credential management for AI agents.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The question isn't whether you <em>can</em> manage your own API keys. It's whether that's the problem you want to be solving.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mb-6 italic">
+                    Want to try OpenClaw without managing API keys? <a href="https://clowd.bot" class="text-brand-400 hover:text-brand-300 transition-colors">Launch an instance on Clowdbot</a> &mdash; $0.01 to start, then token costs only.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed mt-12 mb-2"><strong>Further Reading:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li><a href="https://jfrog.com/blog/giving-openclaw-the-keys-to-your-kingdom-read-this-first/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">JFrog: "Giving OpenClaw the Keys to Your Kingdom"</a> &mdash; Security analysis of API key exposure</li>
+                    <li><a href="https://auth0.com/blog/api-key-security-for-ai-agents/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Auth0: Common Risks of Giving API Keys to AI Agents</a> &mdash; Authentication best practices</li>
+                    <li><a href="/blog/real-cost-of-running-openclaw.html" class="text-brand-400 hover:text-brand-300 transition-colors">The Real Cost of Running OpenClaw</a> &mdash; Full cost breakdown including API expenses</li>
+                    <li><a href="/blog/openclaw-local-vs-cloud.html" class="text-brand-400 hover:text-brand-300 transition-colors">What Running OpenClaw Locally Actually Means</a> &mdash; Security implications of local operation</li>
+                    <li><a href="https://docs.atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP Documentation</a> &mdash; Unified LLM gateway details</li>
+                </ul>
+            </div>
+
+            <footer class="mt-16 pt-8 border-t border-gray-800">
+                <div class="flex items-center justify-between">
+                    <a href="/blog/" class="text-brand-400 hover:text-brand-300 transition-colors flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        All Posts
+                    </a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="bg-gray-950 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <span class="text-2xl">☁️🦞</span>
+                    <span class="text-xl font-bold text-white">Clowdbot</span>
+                </a>
+                <div class="flex items-center gap-8 text-gray-400">
+                    <a href="/#features" class="hover:text-white transition-colors">Features</a>
+                    <a href="/#pricing" class="hover:text-white transition-colors">Pricing</a>
+                    <a href="/#faq" class="hover:text-white transition-colors">FAQ</a>
+                    <a href="https://clowdbot.atxp.ai/api/v2/auth/login" rel="noopener" class="hover:text-white transition-colors">Sign In</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
+                <p>Built with love by <a href="https://circuitandchisel.com" rel="noopener" class="text-gray-400 hover:text-white transition-colors">Circuit & Chisel</a></p>
+                <div class="flex items-center gap-6">
+                    <a href="https://docs.atxp.ai/terms" rel="noopener" class="hover:text-white transition-colors">Terms</a>
+                    <a href="https://docs.atxp.ai/privacy" rel="noopener" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Cross-domain link decoration for PostHog -->
+    <script>
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a');
+            if (!link) return;
+            var href = link.getAttribute('href') || '';
+            if (href.indexOf('clowdbot.atxp.ai') === -1) return;
+            if (typeof posthog === 'undefined' || !posthog.get_distinct_id) return;
+            var url = new URL(href, window.location.origin);
+            var hash = new URLSearchParams(url.hash.substring(1));
+            hash.set('ph_distinct_id', posthog.get_distinct_id());
+            hash.set('ph_session_id', posthog.get_session_id());
+            url.hash = hash.toString();
+            link.href = url.toString();
+        });
+    </script>
+</body>
+</html>

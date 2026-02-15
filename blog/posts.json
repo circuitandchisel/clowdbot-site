@@ -3,8 +3,35 @@
   "description": "Guides on hosting OpenClaw in the cloud — pricing, security, and infrastructure analysis from the Clowdbot team.",
   "url": "https://clowd.bot/blog/",
   "feed": "https://clowd.bot/blog/feed.xml",
-  "updated": "2026-02-06T10:00:00Z",
+  "updated": "2026-02-14T10:00:00Z",
   "posts": [
+    {
+      "id": "hidden-costs-of-ai-assistants",
+      "title": "The Hidden Costs of \"$20/month\" AI Assistants",
+      "url": "https://clowd.bot/blog/hidden-costs-of-ai-assistants.html",
+      "excerpt": "The sticker price for most AI assistants is $20/month. But $20/month is rarely the actual cost. The real number lives in the margins.",
+      "date": "2026-02-14",
+      "readTime": "7 min",
+      "tags": ["pricing", "ai-assistants", "subscriptions", "usage-based"]
+    },
+    {
+      "id": "openclaw-hosting-compared",
+      "title": "OpenClaw Hosting Compared: VPS, Managed, and Pay-As-You-Go",
+      "url": "https://clowd.bot/blog/openclaw-hosting-compared.html",
+      "excerpt": "There are now dozens of ways to host OpenClaw, from a $4/month VPS to fully managed platforms. An honest comparison of every tier.",
+      "date": "2026-02-13",
+      "readTime": "9 min",
+      "tags": ["hosting", "openclaw", "pricing", "comparison", "security"]
+    },
+    {
+      "id": "openclaw-without-api-keys",
+      "title": "OpenClaw Without API Keys: What Changes When Someone Else Handles Credentials",
+      "url": "https://clowd.bot/blog/openclaw-without-api-keys.html",
+      "excerpt": "Every OpenClaw guide starts with \"configure your API keys.\" That framing makes it sound like a one-time task. It isn't.",
+      "date": "2026-02-12",
+      "readTime": "7 min",
+      "tags": ["security", "openclaw", "api-keys", "credentials", "hosting"]
+    },
     {
       "id": "ai-assistant-multimodal-tools",
       "title": "When Your AI Assistant Can Generate Images, Music, and Video",

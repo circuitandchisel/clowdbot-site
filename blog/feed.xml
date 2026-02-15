@@ -6,7 +6,31 @@
     <link>https://clowd.bot/blog/</link>
     <atom:link href="https://clowd.bot/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Feb 2026 10:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Feb 2026 10:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>The Hidden Costs of "$20/month" AI Assistants</title>
+      <link>https://clowd.bot/blog/hidden-costs-of-ai-assistants.html</link>
+      <guid isPermaLink="true">https://clowd.bot/blog/hidden-costs-of-ai-assistants.html</guid>
+      <pubDate>Sat, 14 Feb 2026 10:00:00 GMT</pubDate>
+      <description>The sticker price for most AI assistants is $20/month. But $20/month is rarely the actual cost. The real number lives in the margins.</description>
+    </item>
+
+    <item>
+      <title>OpenClaw Hosting Compared: VPS, Managed, and Pay-As-You-Go</title>
+      <link>https://clowd.bot/blog/openclaw-hosting-compared.html</link>
+      <guid isPermaLink="true">https://clowd.bot/blog/openclaw-hosting-compared.html</guid>
+      <pubDate>Fri, 13 Feb 2026 10:00:00 GMT</pubDate>
+      <description>There are now dozens of ways to host OpenClaw, from a $4/month VPS to fully managed platforms. An honest comparison of every tier.</description>
+    </item>
+
+    <item>
+      <title>OpenClaw Without API Keys: What Changes When Someone Else Handles Credentials</title>
+      <link>https://clowd.bot/blog/openclaw-without-api-keys.html</link>
+      <guid isPermaLink="true">https://clowd.bot/blog/openclaw-without-api-keys.html</guid>
+      <pubDate>Thu, 12 Feb 2026 10:00:00 GMT</pubDate>
+      <description>Every OpenClaw guide starts with "configure your API keys." That framing makes it sound like a one-time task. It isn't.</description>
+    </item>
 
     <item>
       <title>When Your AI Assistant Can Generate Images, Music, and Video</title>
