@@ -50,15 +50,17 @@
     <meta property="og:url" content="https://clowd.bot/blog/ai-assistant-multimodal-tools.html">
     <meta property="og:title" content="AI Assistant Multimodal Tools - Clowdbot Blog">
     <meta property="og:description" content="Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?">
+    <meta property="og:image" content="https://clowd.bot/blog/images/ai-assistant-multimodal-tools.jpg">
     <meta property="og:site_name" content="Clowdbot">
     <meta property="article:published_time" content="2026-02-06T10:00:00Z">
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@atxp_ai">
     <meta name="twitter:url" content="https://clowd.bot/blog/ai-assistant-multimodal-tools.html">
     <meta name="twitter:title" content="AI Assistant Multimodal Tools - Clowdbot Blog">
     <meta name="twitter:description" content="Most AI assistants are text in, text out. What changes when assistants can generate images, music, video, run code, and take actions?">
+    <meta name="twitter:image" content="https://clowd.bot/blog/images/ai-assistant-multimodal-tools.jpg">
 
     <!-- Fonts and Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +79,48 @@
         "publisher": { "@type": "Organization", "name": "Clowdbot", "url": "https://clowd.bot" },
         "datePublished": "2026-02-06T10:00:00Z",
         "keywords": ["agents", "multimodal", "tools", "atxp", "ai assistant"]
+    }
+    </script>
+
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can AI assistants already generate images, music, and video?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Many systems can generate media individually, but fewer assistants integrate multiple capabilities into a unified workflow."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is tool access important for AI agents?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tools allow agents to complete tasks rather than only describing how to complete them."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are tool-equipped agents safe to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "With proper safeguards—sandboxing, confirmations, and permissions—they can be operated safely, but oversight remains important."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will most AI assistants work this way in the future?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Industry trends suggest that multimodal generation and tool access are becoming standard capabilities for advanced agents."
+                }
+            }
+        ]
     }
     </script>
     <!-- Meta Pixel Code -->
@@ -152,6 +196,12 @@
                     <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">tools</span>
                     <span class="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">atxp</span>
                 </div>
+                <img
+                    src="/blog/images/ai-assistant-multimodal-tools.jpg"
+                    alt="An AI assistant connected to multiple output modalities: image generation, music, video, and code execution — all through a unified interface"
+                    class="w-full rounded-2xl mb-8"
+                    loading="lazy"
+                >
             </header>
 
             <div class="prose prose-lg prose-invert max-w-none">
@@ -445,6 +495,15 @@
                 <p class="text-gray-300 leading-relaxed mb-6 italic">
                     Explore what's possible when AI assistants have real tools. <a href="https://docs.atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP Documentation</a> covers the full capability catalog.
                 </p>
+
+                <p class="text-gray-300 leading-relaxed mt-12 mb-2"><strong>Further Reading:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-1">
+                    <li><a href="/blog/openclaw-without-api-keys.html" class="text-brand-400 hover:text-brand-300 transition-colors">OpenClaw Without API Keys</a> &mdash; How managed credentials remove the friction of multi-provider tool access</li>
+                    <li><a href="/blog/openclaw-hosting-compared.html" class="text-brand-400 hover:text-brand-300 transition-colors">OpenClaw Hosting Compared</a> &mdash; Which hosting tiers support full multimodal tool access</li>
+                    <li><a href="/blog/real-cost-of-running-openclaw.html" class="text-brand-400 hover:text-brand-300 transition-colors">The Real Cost of Running OpenClaw</a> &mdash; How tool usage affects the three layers of cost</li>
+                    <li><a href="https://modelcontextprotocol.io/" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">Model Context Protocol</a> &mdash; The standard interface for connecting agents to external tools</li>
+                    <li><a href="https://docs.atxp.ai" class="text-brand-400 hover:text-brand-300 transition-colors" rel="noopener">ATXP Documentation</a> &mdash; Full capability catalog for multimodal tool access</li>
+                </ul>
             </div>
 
             <footer class="mt-16 pt-8 border-t border-gray-800">
